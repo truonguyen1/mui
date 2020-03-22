@@ -1,0 +1,95 @@
+/*
+ * Copyright: Copyright (c) 2013-2019 by INT, Inc.  All rights reserved.<br>
+ * Company: INT, Inc. <br>
+ *  INT PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ */
+@use "core" as Core;
+@use "colors" as Colors;
+@use "icons" as Icons;
+
+.ivaap-number{
+  position:relative;
+  box-sizing:border-box;
+  //background:white;
+  overflow: hidden;
+
+  @include  Colors.border-on-background("surface");
+  @include  Colors.text-on-background("surface");
+}
+
+.ivaap-number__input{
+  padding:16px 46px;
+  padding-left:16px;
+  padding-right:92px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-decoration:none;
+  background:transparent;
+  outline: none;
+  border:1px solid transparent;
+  border-radius:4px;
+  //border-color:inherit;
+  color:inherit;
+
+  &:focus{
+    border:1px solid Colors.color("accent");
+  }
+
+  @include  Colors.background("surface");
+}
+.ivaap-number--no-control{
+  padding:16px;
+}
+.ivaap-number__incr{
+  @include Core.ripple;
+  position:absolute;
+  top: 1px;
+  right: 1px;
+  bottom:1px;
+  padding:0px 16px;
+  cursor:pointer;
+  background:none;
+  border:none;
+  outline:none;
+  overflow:hidden;
+  color:inherit;
+  &:focus,
+  &:hover{
+    @include Colors.background-hover('accent');
+  }
+  @include  Colors.container-bold("surface");
+  //border-left:1px solid lightgrey;
+}
+.ivaap-number__decr{
+  @include Core.ripple;
+  position:absolute;
+  background:none;
+  border:none;
+  outline:none;
+  right:48px;
+  top:1px;
+  bottom:1px;
+  padding:0px 16px;
+  cursor:pointer;
+  //border-left:1px solid lightgrey;
+  //border-color:inherit;
+  color:inherit;
+  &:focus,
+  &:hover{
+    @include Colors.background-hover('accent');
+  }
+  @include  Colors.container-bold("surface");
+
+  //border-right:1px solid lightgrey;
+}
+.ivaap-number__incr-icon{
+  @include Icons.icon("plus");
+
+}
+.ivaap-number__decr-icon{
+  @include Icons.icon("minus");
+}

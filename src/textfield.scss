@@ -1,0 +1,133 @@
+/*
+ * Copyright: Copyright (c) 2013-2019 by INT, Inc.  All rights reserved.<br>
+ * Company: INT, Inc. <br>
+ *  INT PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ */
+@use "colors" as Colors;
+@use "core" as Core;
+@use "icons" as Icons;
+@use "button" as Button;
+
+.ivaap-text{
+  position:relative;
+  box-sizing:border-box;
+  //background:white;
+  @include  Colors.border-on-background("surface");
+  @include  Colors.text-on-background("surface");
+}
+
+@mixin ivaap-text__input{
+  padding:15px 20px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-decoration:none;
+  background:transparent;
+  outline: none;
+  border:1px solid transparent;
+  border-radius:4px;
+  //border-color:inherit;
+  color:inherit;
+  &:focus{
+    border:1px solid Colors.color("accent");
+  }
+  @include Colors.background("surface");
+}
+.ivaap-text__input{
+  @include ivaap-text__input;
+}
+.ivaap-text__input-container{
+  position:relative;
+  border-color:inherit;
+  color:inherit;
+}
+.ivaap-text--error > .ivaap-text__input-container>.ivaap-text__input{
+  border-color:Colors.color("alert");
+  &:focus{
+    border-color:Colors.color("alert");
+  }
+}
+
+
+.ivaap-text__right-container{
+  position:absolute;
+  top:50%;
+  right:0px;
+  transform:translateY(-50%);
+  &> *:last-child{
+    padding-right:16px;
+  }
+  &>*:first-child{
+    padding-left:16px;
+  }
+  @include Core.flex--hor;
+}
+
+.ivaap-text__error-icon{
+  @include Icons.icon("exclamation");
+}
+
+.ivaap-text__assistive-text {
+  position: absolute;
+  font-size: 80%;
+  color:Colors.color("alert");
+  margin-left:16px;
+}
+
+
+
+
+.ivaap-text__left-icon,
+.ivaap-text__right-icon{
+  @include Core.ripple;
+  padding:0px 16px;
+  cursor:pointer;
+  background:none;
+  border:none;
+  outline:none;
+  overflow:hidden;
+  color:inherit;
+  &:focus,
+  &:hover{
+    @include Colors.background-hover('accent');
+  }
+}
+.ivaap-text__right-icon{
+  padding:16px;
+}
+.ivaap-text__left-icon{
+  position: absolute;
+  left: 0px;
+  height:100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.ivaap-text__assistive-icon{
+  padding:16px 8px;
+  padding-right:0px;
+  &:last-child{
+    padding-right:16px;
+  }
+}
+
+
+.ivaap-text__assistive-text--visible {
+  padding-bottom: 16px;
+}
+
+
+.ivaap-text__left-icon--visible{
+  padding-left: 46px;
+}
+.ivaap-text__right-icon--visible,
+.ivaap-text__assistive-icon--visible{
+  padding-right:46px;
+}
+.ivaap-text__right-icon--visible.ivaap-text__assistive-icon--visible{
+  padding-right:80px;
+}
+

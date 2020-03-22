@@ -1,0 +1,173 @@
+/*
+ * Copyright: Copyright (c) 2013-2019 by INT, Inc.  All rights reserved.<br>
+ * Company: INT, Inc. <br>
+ *  INT PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ */
+
+
+@use "core" as Core;
+@use "textfield" as Text;
+@use "colors" as Colors;
+
+@import "~flatpickr/dist/flatpickr.min";
+.ivaap-datetime-picker{
+  @include  Colors.border-on-background("surface");
+  @include Colors.text-on-background("surface");
+
+}
+.ivaap-datetime-picker__input{
+  @include Text.ivaap-text__input;
+}
+
+.flatpickr-months{
+  @include Core.flex--hor;
+  @include Core.flex-align__container-cross-axis;
+
+  &>.flatpickr-prev-month,
+  &>.flatpickr-next-month{
+    position: relative;
+    height: auto;
+    padding:16px;
+    color:inherit;
+    fill:inherit;
+  }
+  &>.flatpickr-month{
+    height:auto;
+    line-height: initial;
+    color:inherit;
+    @include Core.flex-item--scaled;
+
+  }
+}
+
+.flatpickr-current-month{
+  position: relative;
+  @include Core.flex--hor;
+  @include Core.flex-align__container-main-axis;
+  width:auto;
+  left:auto;
+  padding:0px;
+  height:auto;
+
+}
+.flatpickr-calendar{
+  -webkit-box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+  box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+  background:white;
+  border-radius:3px;
+  @include Colors.container("surface");
+  @include Core.flex--hor;
+}
+.flatpickr-innerContainer{
+  @include Core.flex--ver;
+}
+.flatpickr-rContainer{
+  @include Core.flex-item--scaled;
+  @include Core.flex--ver;
+}
+.flatpickr-weekdaycontainer{
+  @include Core.flex--hor;
+  @include Core.flex-item--scaled;
+  padding: 0px 8px;
+}
+span.flatpickr-weekdays{
+  margin:0px 16px;
+  width:auto;
+  color:inherit;
+}
+span.flatpickr-weekday{
+  color:inherit;
+}
+.flatpickr-days{
+  margin:0px 8px;
+  width:auto;
+  margin-bottom: 16px;
+  @include Core.flex--hor;
+}
+.dayContainer{
+  width:auto;
+  min-width:auto;
+  max-width:auto;
+  @include Core.flex-item--scaled;
+
+}
+.flatpickr-day{
+  font-size:16px;
+  color:inherit;
+  overflow:hidden;
+}
+.flatpickr-current-month .flatpickr-monthDropdown-months,
+.flatpickr-current-month input.cur-year{
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 15px;
+}
+.flatpickr-day.flatpickr-disabled,
+.flatpickr-day.flatpickr-disabled:hover,
+.flatpickr-day.prevMonthDay,
+.flatpickr-day.nextMonthDay,
+.flatpickr-day.notAllowed,
+.flatpickr-day.notAllowed.prevMonthDay,
+.flatpickr-day.notAllowed.nextMonthDay{
+  @include Colors.disabled-text-on-background("surface");
+}
+
+.flatpickr-calendar.arrowTop:before{
+  border-bottom-color: Colors.color("surface");
+}
+.flatpickr-calendar.arrowTop:after{
+  border-bottom-color: Colors.color("surface");
+}
+
+.flatpickr-day.today{
+  @include Colors.border-on-background("surface");
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange,
+.flatpickr-day.selected.inRange,
+.flatpickr-day.startRange.inRange,
+.flatpickr-day.endRange.inRange,
+.flatpickr-day.selected:focus,
+.flatpickr-day.startRange:focus,
+.flatpickr-day.endRange:focus,
+.flatpickr-day.selected:hover,
+.flatpickr-day.startRange:hover,
+.flatpickr-day.endRange:hover,
+.flatpickr-day.selected.prevMonthDay,
+.flatpickr-day.startRange.prevMonthDay,
+.flatpickr-day.endRange.prevMonthDay,
+.flatpickr-day.selected.nextMonthDay,
+.flatpickr-day.startRange.nextMonthDay,
+.flatpickr-day.endRange.nextMonthDay{
+  background:none;
+  color:inherit;
+  @include Core.active-container("accent");
+  //@include Colors.border("accent");
+  border-color: transparent;
+
+}
+.flatpickr-day.today:hover,
+.flatpickr-day.today:focus{
+  @include Colors.container-stealth("accent");
+  //@include Colors.border("accent");
+  border-color: transparent;
+  color:inherit;
+}
+.flatpickr-day.inRange,
+.flatpickr-day.prevMonthDay.inRange,
+.flatpickr-day.nextMonthDay.inRange,
+.flatpickr-day.today.inRange,
+.flatpickr-day.prevMonthDay.today.inRange,
+.flatpickr-day.nextMonthDay.today.inRange,
+.flatpickr-day:hover,
+.flatpickr-day.prevMonthDay:hover,
+.flatpickr-day.nextMonthDay:hover,
+.flatpickr-day:focus,
+.flatpickr-day.prevMonthDay:focus,
+.flatpickr-day.nextMonthDay:focus{
+  @include Colors.container-stealth("accent");
+  //@include Colors.border("accent");
+  border-color: transparent;
+}

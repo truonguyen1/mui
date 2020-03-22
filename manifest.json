@@ -1,0 +1,42 @@
+{
+  "resource": [
+    "src/alt_holder.svg",
+    "node_modules/flatpickr/dist/flatpickr.js",
+    "node_modules/@simonwep/pickr/dist/pickr.es5.min.js"
+  ],
+  "scss": {
+    "light":"src/light-theme.scss",
+    "dark":"src/dark-theme.scss"
+  },
+  "js": [
+    "src/mui.js",
+    "src/entity.js",
+    "src/entitycollection.js",
+    "src/arraycollection.js",
+    "src/xdom.js",
+    "src/element.js",
+    "src/button.js",
+    "src/dropdown.js",
+    "src/checkbox.js",
+    "src/buttongroup.js",
+    "src/radiogroup.js",
+    "src/textfield.js",
+    "src/number.js",
+    "src/coloreditor.js",
+    "src/colorpicker.js",
+    "src/datetimepicker.js",
+    "src/card.js",
+    "src/content.js",
+    "src/menu.js",
+    "src/abstractlazylist.js",
+    "src/lazylist.js",
+    "src/lazytree.js",
+    "src/datagrid.js",
+    "src/splitcontainer.js",
+    "src/panel.js",
+    "src/tab.js",
+    "src/dialog.js",
+    "src/style.js",
+    "src/guifactory.js"
+  ]
+}

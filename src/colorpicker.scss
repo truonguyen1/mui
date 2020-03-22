@@ -1,0 +1,89 @@
+/*
+ * Copyright: Copyright (c) 2013-2019 by INT, Inc.  All rights reserved.<br>
+ * Company: INT, Inc. <br>
+ *  INT PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ */
+@use "core" as Core;
+@use "colors" as Colors;
+@use "button" as Button;
+@use "textfield" as Text;
+@import '~@simonwep/pickr/dist/themes/monolith.min';
+.ivaap-colorpicker{
+  width:30px;
+  height:30px;
+  border-radius:3px;
+  position:relative;
+  padding:0px 16px;
+  cursor:pointer;
+  background:none;
+  border:1px solid lightgrey;
+  outline:none;
+  overflow:hidden;
+  color:inherit;
+  border-color:inherit;
+  &:hover,
+  &:focus{
+    border-color:Colors.color("accent");
+  }
+
+
+
+}
+.ivaap-colorpicker__trans-img{
+  @include Core.absolute;
+  background: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 2"><path fill="white" d="M1,0H2V1H1V0ZM0,1H1V2H0V1Z"/><path fill="gray" d="M0,0H1V1H0V0ZM1,1H2V2H1V1Z"/></svg>');
+  background-size: 6px;
+  border-radius: .15em;
+}
+.ivaap-colorpicker__bg{
+  @include  Core.absolute;
+  //&:before{
+  //  position: absolute;
+  //  content: "";
+  //  top: 0;
+  //  left: 0;
+  //  width: 100%;
+  //  height: 100%;
+  //  background: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 2"><path fill="white" d="M1,0H2V1H1V0ZM0,1H1V2H0V1Z"/><path fill="gray" d="M0,0H1V1H0V0ZM1,1H2V2H1V1Z"/></svg>');
+  //  background-size: 6px;
+  //  border-radius: .15em;
+  //  z-index: -1;
+  //}
+}
+.pcr-app{
+  -webkit-box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  @include Colors.container("surface");
+}
+.pcr-app[data-theme=monolith]{
+  width:auto;
+
+}
+.pcr-app .pcr-interaction .pcr-cancel:focus,
+.pcr-app .pcr-interaction .pcr-clear:focus,
+.pcr-app .pcr-interaction .pcr-cancel:hover,
+.pcr-app .pcr-interaction .pcr-clear:hover,
+.pcr-app .pcr-interaction .pcr-save:hover{
+  box-shadow: none;
+  @include Core.ripple;
+  @include Core.hover-focus-background("accent");
+}
+.pcr-app .pcr-interaction input:focus{
+  box-shadow: none;
+}
+
+
+.pcr-app .pcr-interaction .pcr-save{
+  margin-left:16px;
+  @include Button.button--shadow;
+  @include Button.ivaap-button;
+  @include Colors.container("accent");
+}
+.pcr-app .pcr-interaction .pcr-cancel, .pcr-app .pcr-interaction .pcr-clear{
+  @include   Button.button-link;
+}
+.pcr-app .pcr-interaction .pcr-result{
+  @include Text.ivaap-text__input;
+  @include Colors.border-on-background("surface");
+  padding:10px 16px;
+}

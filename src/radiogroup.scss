@@ -1,0 +1,41 @@
+/*!
+ * Copyright: Copyright (c) 2013-2019 by INT, Inc.  All rights reserved.<br>
+ * Company: INT, Inc. <br>
+ *  INT PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ */
+
+@use "button" as Button;
+@use "colors" as Colors;
+@use "core" as Core;
+@use "icons" as Icons;
+@use "typography" as Typos;
+
+.ivaap-radio-group{
+
+}
+.ivaap-radio-group--hor{
+  @include Core.flex--hor;
+}
+.ivaap-radio-group--ver{
+  @include Core.flex--ver;
+}
+.ivaap-radio-group__btn{
+  @include Button.button-link;
+  //@include Button.button--square;
+  @include Core.flex-align__container-main-axis(flex-start);
+  padding:8px;
+
+}
+.ivaap-radio-group__btn--selected{
+  @include Colors.text("accent");
+}
+.ivaap-radio-group__btn-icon-empty{
+  @include Icons.icon("circle");
+  @include Typos.typography-h6;
+
+}
+.ivaap-radio-group__btn-icon-selected{
+  @include Icons.icon("circle-checked");
+  @include Typos.typography-h6;
+
+}

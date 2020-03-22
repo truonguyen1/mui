@@ -1,0 +1,56 @@
+/*!
+ * Copyright: Copyright (c) 2013-2019 by INT, Inc.  All rights reserved.<br>
+ * Company: INT, Inc. <br>
+ *  INT PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ */
+
+@use "button" as Button;
+@use "colors" as Colors;
+@use "core" as Core;
+
+.ivaap-button-group{
+  border:none;
+  border-radius:3px;
+  overflow: hidden;
+}
+.ivaap-button-group--hor{
+  @include Core.flex--hor;
+  &>.ivaap-button-group__btn {
+    margin-right: 1px;
+
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+}
+.ivaap-button-group--ver{
+  @include Core.flex--ver;
+  &>.ivaap-button-group__btn {
+    margin-bottom: 1px;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+}
+.ivaap-button-group__btn{
+  @include Button.ivaap-button;
+  @include Button.button--square;
+  @include  Colors.container("surface");
+  padding:16px;
+  //border-right:1px solid transparent;
+  //@include Colors.border-on-background("surface");
+  &:not(.ivaap-button-group__btn--selected):not(.ivaap-button-group__btn--active){
+    @include Core.hover-focus-background("accent");
+  }
+
+
+}
+.ivaap-button-group__btn--selected{
+  @include Core.active-container("accent");
+}
+.ivaap-button-group__btn--active{
+  @include Core.active-container("accent");
+
+}
+

@@ -1,0 +1,159 @@
+
+@use "sass:map";
+@use "sass:color";
+
+$ivaap-theme-primary:#336a99 !default;
+$ivaap-theme-accent:#00c300 !default;
+$ivaap-theme-surface:white !default;
+$ivaap-theme-alert:#d9534f !default;;
+$ivaap-theme-background:#e5e5e5 !default;
+$ivaap-theme-on-primary:white !default;
+$ivaap-theme-on-accent:white !default;
+$ivaap-theme-on-surface:#262626 !default;
+$ivaap-theme-on-alert:white !default;
+$ivaap-theme-on-background:black !default;
+
+$themes-colors:(
+  "primary":$ivaap-theme-primary,
+  "alert":$ivaap-theme-alert,
+  "accent":$ivaap-theme-accent,
+  "surface":$ivaap-theme-surface,
+  "background":$ivaap-theme-background
+) !default;
+$on-themes-colors:(
+  "primary":$ivaap-theme-on-primary,
+  "alert":$ivaap-theme-on-alert,
+  "accent":$ivaap-theme-on-accent,
+  "surface":$ivaap-theme-on-surface,
+  "background":$ivaap-theme-on-background
+) !default;
+
+/// Slightly lighten a color
+/// @access public
+/// @param {Color} $color - color to tint
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+/// Slightly darken a color
+/// @access public
+/// @param {Color} $color - color to shade
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+/**
+ * Get theme color
+ */
+@function color($name){
+  @return map.get($themes-colors,$name);
+}
+/**
+ * Get theme color
+ */
+@function onColor($name){
+  @return map.get($on-themes-colors,$name);
+}
+@function fadeOutTheme($name){
+  @return color.adjust(map.get($themes-colors,$name),$alpha:-0.9);
+}
+
+@function activeTheme($name){
+  @return color.adjust(map.get($themes-colors,$name),$alpha:-0.7);
+}
+
+
+/**
+ * Generate theme container with background & color
+ */
+@mixin container($name){
+  background-color: map.get($themes-colors,$name);
+  color: map.get($on-themes-colors,$name);
+}
+@mixin container-stealth($name){
+  background-color:color.adjust(map.get($themes-colors,$name),$alpha:-0.9);
+  //color: darken(map.get($on-themes-colors,$name),95%);
+}
+@mixin container-active($name){
+  background-color:tint(map.get($themes-colors,$name),10%);
+  //color: map.get($on-themes-colors,$name);
+  //color: darken(map.get($on-themes-colors,$name),85%);
+}
+@mixin container-bold($name){
+  background-color:shade(map.get($themes-colors,$name),10%);
+  color: map.get($on-themes-colors,$name);
+}
+@mixin container-bold-less($name){
+  background-color:shade(map.get($themes-colors,$name),5%);
+  color: map.get($on-themes-colors,$name);
+}
+/**
+ * Generate background using theme color
+ */
+@mixin background($name){
+  background-color: map.get($themes-colors,$name);
+}
+
+@mixin background-hover($name){
+  background-color:color.adjust(map.get($themes-colors,$name),$alpha:-0.9);
+}
+/**
+ * Generate text using theme color
+ */
+@mixin text($name){
+  color: map.get($themes-colors,$name);
+}
+/**
+ * Generate border using theme color
+ */
+@mixin border($name){
+  border-color: map.get($themes-colors,$name);
+}
+
+/**
+ * Generate text color contrast to theme color
+  */
+@mixin text-on-background($name){
+  color: map.get($on-themes-colors,$name);
+}
+@mixin disabled-text-on-background($name){
+  color: color.adjust(map.get($on-themes-colors,$name),$alpha:-0.7);
+}
+@mixin border-on-background($name){
+  border-color: color.adjust(map.get($on-themes-colors,$name),$alpha:-0.8);
+}
+
+@each $name, $color in $themes-colors{
+  .ivaap-bg-of-#{$name}{
+      @include background($name);
+  }
+  .ivaap-bg-of-#{$name}{
+    @include background($name);
+  }
+  .ivaap-txt-of-#{$name}{
+    @include text($name);
+  }
+  .ivaap-border-of-#{$name}{
+    @include border($name);
+  }
+
+  .ivaap-text-on-#{$name}{
+    @include text-on-background($name);
+  }
+  .ivaap-disabled-text-on-#{$name}{
+    @include disabled-text-on-background($name);
+  }
+  .ivaap-border-on-#{$name}{
+    @include border-on-background($name);
+  }
+  .ivaap-container-of-#{$name}{
+    @include container($name);
+  }
+  .ivaap-container-bold-of-#{$name}{
+    @include container-bold($name);
+  }
+}

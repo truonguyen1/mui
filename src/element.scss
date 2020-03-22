@@ -1,0 +1,67 @@
+/*
+ * Copyright: Copyright (c) 2013-2019 by INT, Inc.  All rights reserved.<br>
+ * Company: INT, Inc. <br>
+ *  INT PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ */
+@use "core" as Core;
+.ivaap-el{
+
+}
+.ivaap-el--hidden{
+  display:  none;
+}
+.ivaap-box{
+  position:relative;
+}
+
+.ivaap-el--fit-to-parent{
+  @include  Core.absolute;
+}
+.ivaap-flex-child--expanded{
+  @include Core.flex-item--scaled;
+}
+.ivaap-flex__cross-axis-self--center{
+  @include Core.flex-align__child-cross-axis;
+}
+.ivaap-flex__cross-axis-self--start{
+  @include Core.flex-align__child-cross-axis(flex-start);
+}
+.ivaap-flex__cross-axis-self--end{
+  @include Core.flex-align__child-cross-axis(flex-end);
+}
+.ivaap-center{
+  @include Core.flex--hor;
+  @include Core.flex-align__container-cross-axis;
+  @include Core.flex-align__container-main-axis;
+}
+
+.ivaap-box__cross-axis--center{
+  @include  Core.flex-align__container-cross-axis;
+}
+.ivaap-box__cross-axis--start{
+  @include  Core.flex-align__container-cross-axis(flex-start);
+
+}
+.ivaap-box__cross-axis--end{
+  @include  Core.flex-align__container-cross-axis(flex-end);
+
+}
+.ivaap-box__main-axis--center{
+  @include  Core.flex-align__container-main-axis;
+}
+.ivaap-box__main-axis--start{
+  @include  Core.flex-align__container-main-axis(flex-start);
+}
+.ivaap-box__main-axis--end{
+  @include  Core.flex-align__container-main-axis(flex-end);
+}
+.ivaap-vbox{
+  @include Core.flex--ver;
+}
+.ivaap-hbox{
+  @include Core.flex--hor;
+}
+
+.ivaap-fitted-box{
+  @include  Core.absolute;
+}

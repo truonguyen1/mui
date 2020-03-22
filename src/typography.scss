@@ -1,0 +1,155 @@
+/*
+ * Copyright: Copyright (c) 2013-2019 by INT, Inc.  All rights reserved.<br>
+ * Company: INT, Inc. <br>
+ *  INT PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ */
+
+@mixin typography-h1{
+  font-size:6rem;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.01562em;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+.ivp-typo__h1{
+  @include typography-h1;
+}
+@mixin typography-h2{
+  font-size: 3.75rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.00833em;
+}
+.ivp-typo__h2{
+  @include typography-h2;
+}
+
+@mixin typography-h3{
+  font-size: 3rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: 0em;
+}
+.ivp-typo__h3{
+  @include typography-h3;
+}
+
+@mixin typography-h4{
+  -webkit-font-smoothing: antialiased;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  text-decoration: inherit;
+  text-transform: inherit;
+  font-size: 2.125rem;
+  line-height: 2.5rem;
+  letter-spacing: .0073529412em;
+}
+.ivp-typo__h4{
+  @include typography-h4;
+}
+@mixin typography-h5{
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 2rem;
+  text-decoration: inherit;
+  text-transform: inherit;
+}
+.ivp-typo__h5{
+  @include typography-h5;
+}
+@mixin typography-h6{
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: .0125em;
+  -webkit-font-smoothing: antialiased;
+  line-height: 2rem;
+  text-decoration: inherit;
+  text-transform: inherit;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+.ivp-typo__h6{
+  @include typography-h6;
+}
+@mixin typography-subtitle {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 1rem;
+  line-height: 1.75rem;
+  font-weight: 400;
+  letter-spacing: .009375em;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: inherit;
+  text-transform: inherit;
+}
+.ivp-typo__subtitle{
+  @include typography-subtitle;
+}
+@mixin  typography-subtitle--bold{
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: .875rem;
+  line-height: 1.375rem;
+  font-weight: 500;
+  letter-spacing: .0071428571em;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: inherit;
+  text-transform: inherit;
+}
+.ivp-typo__subtitle--bold{
+  @include typography-subtitle--bold;
+}
+@mixin typography-body1 {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  letter-spacing: .03125em;
+  text-decoration: inherit;
+  text-transform: inherit;
+}
+@mixin typography-body2 {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.25rem;
+  font-weight: 400;
+  text-decoration: inherit;
+  text-transform: inherit;
+  font-size: .875rem;
+  letter-spacing: .0178571429em;
+}
+.ivp-typo__body{
+  @include typography-body2;
+}
+@mixin typography-link {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: .875rem;
+  line-height: 2.25rem;
+  letter-spacing: .0892857143em;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.ivp-typo__link{
+  @include typography-link;
+}
+@mixin caption{
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: .75rem;
+  letter-spacing: .0333333333em;
+  -webkit-font-smoothing: antialiased;
+  line-height: 0.9rem;
+  font-weight: 400;
+  text-decoration: inherit;
+  text-transform: inherit;
+}
+
+.ivp-typo__caption{
+  @include caption;
+}

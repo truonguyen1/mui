@@ -1,0 +1,45 @@
+/*
+ * Copyright: Copyright (c) 2013-2019 by INT, Inc.  All rights reserved.<br>
+ * Company: INT, Inc. <br>
+ *  INT PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ */
+
+body{
+    font-family:"Roboto"
+}
+.ivaap-app{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.ivaap-app >.ivaap-el{
+    margin:5px;
+}
+.ivaap-button-container{
+    display: flex;
+    flex-direction: row;
+
+}
+.ivaap-button-container >.ivaap-el{
+    margin:5px;
+}
+
+.demo-container{
+    margin:10px;
+    /*border:1px solid lightgrey;*/
+    width:500px;
+    height:400px;
+    position:relative;
+}
+.demo-title{
+    //font-size:20px;
+    margin-top:30px !important;
+    //font-weight:bold;
+}
+.demo-desc.ivaap-el {
+    margin-top: 0px !important;
+    font-size: 14px;
+    color: grey;
+}

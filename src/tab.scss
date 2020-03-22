@@ -1,0 +1,52 @@
+@use "core" as Core;
+@use "colors" as Colors;
+@use "button" as Button;
+
+.ivaap-tab{
+  @include Core.flex--ver;
+}
+.ivaap-tab__header{
+  @include Core.flex--hor;
+}
+.ivaap-tab__items-container{
+  @include Core.flex-item--scaled;
+  @include Core.flex--hor;
+  padding:0px 8px;
+}
+.ivaap-tab__left-header-container{
+  @include Core.flex--hor;
+  @include Core.flex-align__container-cross-axis;
+}
+.ivaap-tab__right-header-container{
+  @include Core.flex--hor;
+  @include Core.flex-align__container-cross-axis;
+}
+
+.ivaap-tab__header-item{
+  position: relative;
+  @include Button.ivaap-button;
+  @include Button.button--square;
+  padding:16px 8px;
+}
+
+.ivaap-tab__header-item--active{
+  &:before {
+    content:"";
+    bottom:0px;
+    left:0px;
+    right:0px;
+    position:absolute;
+    border-bottom: 2px solid Colors.color("accent");
+  }
+  //@include Core.active-container("accent");
+  @include Colors.text("accent");
+
+}
+.ivaap-tab__items-container--stretch > .ivaap-tab__header-item{
+  @include Core.flex-item--scaled;
+
+}
+.ivaap-tab__body{
+  @include Core.flex-item--scaled;
+
+}

@@ -1,0 +1,60 @@
+/*
+ * Copyright: Copyright (c) 2013-2019 by INT, Inc.  All rights reserved.<br>
+ * Company: INT, Inc. <br>
+ *  INT PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ */
+@use "core" as Core;
+@use "colors" as Colors;
+@use "icons" as Icons;
+.ivaap-menu{
+  -webkit-box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+  box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+  border-radius:3px;
+  max-height:400px;
+  overflow:auto;
+  @include Colors.container("surface");
+}
+.ivaap-menu__item-container{
+  padding:8px 0px;
+  margin: 0px;
+  color:inherit;
+}
+
+.ivaap-menu__item{
+  @include Core.flex--hor;
+  @include Core.flex-align__container-cross-axis;
+  color:inherit;
+  padding:8px 16px;
+  &:focus,
+  &:hover{
+    &::before {
+      content: "";
+      position: absolute;
+      @include Colors.background-hover("accent");
+
+      top:0px;
+      left:0px;
+      right:0px;
+      bottom:0px;
+    }
+  }
+  @include Core.ripple;
+}
+.ivaap-menu__item--selected{
+  @include Core.active-container("accent");
+}
+.ivaap-menu__item-image{
+  width:100px;
+  height:30px;
+  border-radius: 3px;
+}
+.ivaap-menu__item-icon{
+  margin-right:8px;
+}
+.ivaap-menu__item-label{
+  @include  Core.flex-item--scaled;
+}
+.ivaap-menu__item-parent-icon{
+  @include Icons.icon('collapsed');
+  margin-left:16px;
+}

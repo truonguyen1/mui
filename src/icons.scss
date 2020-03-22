@@ -1,0 +1,90 @@
+/**
+ * Copyright: Copyright (c) 2013-2019 by INT, Inc.  All rights reserved.<br>
+ * Company: INT, Inc. <br>
+ *  INT PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ */
+
+@use "ivaap-v1.0/variables" as Icons;
+@use "sass:map";
+
+$_font-family:"ivaap";
+$_font-path:"ivaap-v1.0/fonts";
+
+$icons: (
+  "info":Icons.$icon-info,
+  "plus":Icons.$icon-plus,
+  "minus":Icons.$icon-minus,
+  "folder":Icons.$icon-folder,
+  "file":Icons.$icon-file,
+  "spin":Icons.$icon-loader,
+  "exclamation":Icons.$icon-alert-circle,
+  "caret-down":Icons.$icon-chevron-down,
+  "cross":Icons.$icon-x,
+  "bars":Icons.$icon-menu,
+  "zoom-in":Icons.$icon-zoom-in,
+  "zoom-out":Icons.$icon-zoom-out,
+  "collapsed":Icons.$icon-chevron-right,
+  "expanded":Icons.$icon-chevron-down,
+  "check":Icons.$icon-check,
+  "circle":Icons.$icon-circle,
+  "circle-checked":Icons.$icon-check-circle,
+  "square":Icons.$icon-square,
+  "square-checked":Icons.$icon-check-square,
+  "three-dots-horizontal":Icons.$icon-more-horizontal,
+  "three-dots-vertical":Icons.$icon-more-vertical
+);
+
+@keyframes ivaap-anim--spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@font-face {
+  font-family: '#{$_font-family}';
+  src:  url('#{$_font-path}/#{$_font-family}.eot?t2psmb');
+  src:  url('#{$_font-path}/#{$_font-family}.eot?t2psmb#iefix') format('embedded-opentype'),
+  url('#{$_font-path}/#{$_font-family}.ttf?t2psmb') format('truetype'),
+  url('#{$_font-path}/#{$_font-family}.woff?t2psmb') format('woff'),
+  url('#{$_font-path}/#{$_font-family}.svg?t2psmb##{$_font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@mixin icon($name){
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$_font-family}' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &:before {
+    content: map.get($icons,$name);
+  }
+}
+
+
+@mixin icon-anim--rotated(){
+  animation: ivaap-anim--spin 2s infinite linear;
+}
+
+/**
+ * Generate css rules for icons
+ */
+@each $name, $glyph in $icons {
+  .ivp-icon-#{$name}{
+      @include icon($name);
+  }
+}

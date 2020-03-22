@@ -1,0 +1,94 @@
+/*
+ * Copyright: Copyright (c) 2013-2019 by INT, Inc.  All rights reserved.<br>
+ * Company: INT, Inc. <br>
+ *  INT PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ */
+@use "core" as Core;
+@use "icons" as Icons;
+@use "colors" as Colors;
+@use "typography" as Typos;
+
+.ivaap-lazy-tree{
+
+}
+.ivaap-lazy-tree__lazy-list{
+  @include Core.absolute;
+}
+.ivaap-lazy-tree__item{
+  @include Core.flex--hor;
+  @include Core.flex-align__container-cross-axis;
+  box-sizing: border-box;
+  //@include Core.hover-focus-background('accent');
+  //@include Core.ripple;
+  &:hover,
+  &:focus{
+    @include Colors.background-hover("accent");
+  }
+
+}
+.ivaap-lazy-tree__item-expand-icon{
+  cursor:pointer;
+  &:hover,
+  &:focus{
+    text-decoration: underline;
+  }
+}
+.ivaap-lazy-tree__item-expand-icon--spin{
+  @include Icons.icon-anim--rotated;
+  @include Icons.icon("spin");
+}
+
+.ivaap-lazy-tree__item-expand-icon--error{
+  @include Icons.icon("exclamation");
+}
+.ivaap-lazy-tree__item-expand-icon--expanded{
+  @include Icons.icon("expanded");
+}
+.ivaap-lazy-tree__item-expand-icon--collapsed{
+  @include Icons.icon("collapsed");
+}
+.ivaap-lazy-tree__item-icon{
+
+
+}
+.ivaap-lazy-tree__item-parent-icon{
+  @include Icons.icon("folder");
+}
+.ivaap-lazy-tree__item-child-icon{
+  @include Icons.icon("file");
+}
+.ivaap-lazy-tree__item-display{
+  @include Core.flex-item--scaled;
+  padding-left:8px;
+  padding-right:8px;
+}
+.ivaap-lay-tree__item-display--clickable{
+  &:hover,
+  &:focus, {
+    text-decoration: underline;
+  }
+  cursor:pointer;
+}
+.ivaap-lazy-tree__setting-icon{
+  @include Icons.icon("three-dots-vertical");
+  background:none;
+  border:none;
+  outline:none;
+  color:inherit;
+  padding:8px 16px;
+  cursor:pointer;
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+
+
+}
+.ivaap-lazy-tree__label{
+  line-height:initial;
+}
+.ivaap-lazy-tree__desc{
+  line-height:initial;
+  @include Typos.caption;
+  opacity:0.5;
+}

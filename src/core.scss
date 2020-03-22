@@ -1,0 +1,277 @@
+
+@use "colors" as Colors;
+@use "sass:map";
+
+@keyframes ripple {
+  from {
+    opacity: 1;
+    transform: scale(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(10);
+  }
+}
+$corner--small: 3px !default;
+$corner--medium: 3px !default;
+$corner--large: 0px !default;
+
+
+$space--small: 4px !default;
+$space--medium: 8px !default;
+$space--large: 16px !default;
+
+// Shape category mapping.
+$shape__corners: (
+      small: $corner--small,
+      medium: $corner--medium,
+      large: $corner--large,
+) !default;
+
+$space__values: (
+      small:$space--small,
+      medium:$space--medium,
+      large: $space--large,
+) !default;
+
+@mixin ripple {
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform .5s, opacity 1s;
+  }
+
+  &:active:after {
+    transform: scale(0, 0);
+    opacity: .3;
+    transition: 0s;
+  }
+}
+@mixin corner($type:small){
+    border-radius:map.get($shape__corners,$type);
+}
+@each $type, $value in $shape__corners{
+  .ivaap-corner__all--#{$type}{
+    border-radius:$value;
+  }
+  .ivaap-corner__top-left--#{$type}{
+    border-top-left-radius:$value;
+  }
+  .ivaap-corner__top-right--#{$type}{
+    border-top-right-radius:$value;
+  }
+  .ivaap-corner__bottom-left--#{$type}{
+    border-bottom-left-radius:$value;
+  }
+  .ivaap-corner__bottom-right--#{$type}{
+    border-bottom-right-radius:$value;
+  }
+}
+@mixin absolute($left:0px,$top:0px,$right:0px,$bottom:0px){
+  position: absolute;
+  top:$top;
+  left:$left;
+  bottom: $bottom;
+  right:$right;
+}
+@mixin fixed($left:0px,$top:0px,$right:0px,$bottom:0px){
+  position: fixed;
+  top:$top;
+  left:$left;
+  bottom: $bottom;
+  right:$right;
+}
+.ivaap-absolute--filled{
+  @include absolute;
+}
+
+@mixin link--clickable{
+  cursor:pointer;
+}
+.ivaap-link--clickable{
+  @include link--clickable;
+}
+@mixin flex--inline{
+  display: -webkit-inline-box;
+  display: -moz-inline-box;
+  display: -ms-inline-flexbox;
+  display: --webkit-inline-flex;
+  display: inline-flex;
+}
+.ivaap-flex--inline{
+  @include flex--inline;
+}
+@mixin flex{
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: --webkit-flex;
+  display: flex;
+}
+.ivaap-flex{
+  @include flex;
+}
+@mixin flex--hor{
+  @include flex;
+  flex-direction: row;
+  -ms-flex-direction: row;
+}
+.ivaap-flex--hor{
+  @include flex--hor;
+}
+
+@mixin elevate(){
+  -webkit-box-shadow: 0 3px 3px -2px rgba(0,0,0,.2), 0 3px 4px 0 rgba(0,0,0,.14), 0 1px 8px 0 rgba(0,0,0,.12);
+  box-shadow: 0 3px 3px -2px rgba(0,0,0,.2), 0 3px 4px 0 rgba(0,0,0,.14), 0 1px 8px 0 rgba(0,0,0,.12);
+}
+.ivaap-elevate--z3{
+  @include elevate;
+}
+
+@mixin flex--ver{
+  @include flex;
+  flex-direction: column;
+  -ms-flex-direction: column;
+}
+.ivaap-flex--ver{
+  @include flex--ver;
+}
+
+@mixin flex-item--scaled{
+  flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+}
+.ivaap-flex-item--scaled{
+  @include flex-item--scaled;
+}
+
+@mixin flex-align__child-cross-axis($value:center){
+  align-self: $value;
+  -ms-align-self: $value;
+  -webkit-align-self:$value;
+}
+@mixin flex-align__container-cross-axis($value:center){
+  align-items: $value;
+  -ms-align-items: $value;
+  -ms-flex-align: $value;
+}
+.ivaap-flex-align__container-cross-axis--center{
+  @include flex-align__container-cross-axis;
+}
+.ivaap-flex-align__container-cross-axis--start{
+  @include flex-align__container-cross-axis(flex-start);
+}
+.ivaap-flex-align__container-cross-axis--end{
+  @include flex-align__container-cross-axis(flex-end);
+}
+@mixin flex-align__container-main-axis($value:center){
+  justify-content: $value;
+  -ms-justify-content: $value;
+  -ms-flex-pack: $value;
+}
+.ivaap-flex-align__container-main-axis--center{
+  @include flex-align__container-main-axis;
+}
+.ivaap-flex-align__container-main-axis--start{
+  @include flex-align__container-main-axis(flex-start);
+}
+.ivaap-flex-align__container-main-axis--end{
+  @include flex-align__container-main-axis(flex-end);
+}
+
+@mixin absolute-before-container($bg:null,$color:null){
+  &:before {
+    content: "";
+    position: absolute;
+    background-color: $bg;
+    color: $color;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+  }
+}
+@mixin absolute-before-theme-container($theme){
+  @include absolute-before-container(
+    Colors.color($theme),
+    Colors.onColor($theme)
+  );
+
+}
+@mixin hover-focus-background($theme){
+  &:focus,
+  &:hover{
+    @include absolute-before-container(
+      Colors.fadeOutTheme($theme)
+    )
+  }
+}
+@mixin active-container($theme){
+  @include absolute-before-container(
+    Colors.activeTheme($theme),
+    Colors.onColor($theme)
+  );
+}
+@mixin active-container-native($theme){
+  background-color:Colors.activeTheme($theme);
+  color:Colors.onColor($theme)
+}
+@each $type, $value in $space__values{
+  .ivaap-padding__all--#{$type}{
+    padding:$value;
+  }
+  .ivaap-padding__left--#{$type}{
+    padding-left:$value;
+  }
+  .ivaap-padding__right--#{$type}{
+    padding-right:$value;
+  }
+  .ivaap-padding__bottom--#{$type}{
+    padding-bottom:$value;
+  }
+  .ivaap-padding__top--#{$type}{
+    padding-top:$value;
+  }
+  .ivaap-margin__all--#{$type}{
+    margin:$value;
+  }
+  .ivaap-margin__left--#{$type}{
+    margin-left:$value;
+  }
+  .ivaap-margin__right--#{$type}{
+    margin-right:$value;
+  }
+  .ivaap-margin__bottom--#{$type}{
+    margin-bottom:$value;
+  }
+  .ivaap-margin__top--#{$type}{
+    margin-top:$value;
+  }
+}
+//.ripple {
+//  background-position: center;
+//  transition: background 0.8s;
+//}
+//.ripple:hover {
+//  background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
+//}
+//.ripple:active {
+//  background-color: #6eb9f7;
+//  background-size: 100%;
+//  transition: background 0s;
+//}
+

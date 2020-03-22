@@ -1,0 +1,133 @@
+/*
+ * Copyright: Copyright (c) 2013-2019 by INT, Inc.  All rights reserved.<br>
+ * Company: INT, Inc. <br>
+ *  INT PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ */
+
+@use "colors" as Colors;
+@use "core" as Core;
+@use "icons" as Icons;
+@use "typography" as Typos;
+
+@mixin ivaap-button(){
+  padding: 8px 16px;
+  border-radius: 3px;
+  //margin-left: 5px;
+  //margin-right: 5px;
+
+  font-weight: bold;
+  font-size: 13px;
+  cursor: pointer;
+  text-transform: uppercase;
+  display:inline-block;
+  outline: none;
+  position: relative;
+  border:none;
+  background:none;
+  color: inherit;
+
+  @include Core.flex--hor;
+  @include Core.flex-align__container-cross-axis;
+  @include Core.flex-align__container-main-axis;
+
+  //@include ripple;
+  @include Core.ripple;
+
+}
+
+@mixin button-link{
+  @include ivaap-button;
+  @include Core.hover-focus-background("accent");
+  padding:8px;
+  color:inherit;
+
+}
+@mixin button-accent{
+  @include button--shadow;
+  @include ivaap-button;
+  @include Colors.container("accent");
+  @include Core.hover-focus-background("accent");
+
+}
+@mixin button--square{
+  border-radius:0px;
+  padding:8px;
+  color:inherit;
+}
+@mixin button--shadow{
+  -webkit-box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+  box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+}
+.ivaap-button{
+  @include ivaap-button;
+}
+.ivaap-button__left-container{
+  @include Core.flex--ver;
+  @include Core.flex-align__container-cross-axis(flex-start);
+}
+.ivaap-button__desc{
+  //@include flex-item--scaled;
+  font-size: 9px;
+  opacity: 0.6;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ivaap-button__icon{
+  margin-right:8px;
+  &:last-child{
+    margin-right:0px;
+  }
+}
+.ivaap-button__caret{
+  margin-left:8px;
+}
+.ivaap-button--sm{
+  @extend .ivaap-button;
+  padding:5px;
+}
+.ivaap-button-icon{
+  @extend .ivaap-button;
+  padding:12px;
+}
+
+
+.ivaap-button-link{
+  @extend .ivaap-button;
+  @include button-link;
+}
+.ivaap-button-primary{
+  @extend .ivaap-button;
+  @include button--shadow;
+  @include Colors.container("primary");
+  //@include Core.hover-focus-background("primary");
+
+}
+.ivaap-button-accent{
+  @include button--shadow;
+  @extend .ivaap-button;
+  @include Colors.container("accent");
+  //@include Core.hover-focus-background("accent");
+}
+.ivaap-button-alert{
+  @include button--shadow;
+  @extend .ivaap-button;
+  @include Colors.container("alert");
+  //@include Core.hover-focus-background("alert");
+}
+
+.ivaap-button--square{
+  @include button--square;
+}
+.ivaap-button--disabled{
+  @extend .ivaap-button;
+
+}
+
+.ivaap-button__menu{
+  position:fixed;
+  z-index: 9999;
+}
+.ivaap-button__caret-icon{
+  @include Icons.icon("caret-down");
+}

@@ -1,0 +1,43 @@
+/*
+ * Copyright: Copyright (c) 2013-2019 by INT, Inc.  All rights reserved.<br>
+ * Company: INT, Inc. <br>
+ *  INT PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ */
+@use "core" as Core;
+@use "icons" as Icons;
+
+.ivaap-content{
+  position: relative;
+}
+.ivaap-content--notification-visible{
+  @include Core.flex--hor;
+  @include Core.flex-align__container-cross-axis;
+  @include Core.flex-align__container-main-axis;
+}
+.ivaap-notification{
+  //@include Core.ivaap-fn-abs-pos;;
+  //@include Core.flex--hor;
+  //@include Core.flex-align__container-cross-axis;
+  //@include Core.flex-align__container-main-axis;
+  opacity: 0.5;
+  font-weight: bold;
+}
+.ivaap-notification__icon{
+  margin-right:8px;
+}
+.ivaap-notification__message{
+
+}
+.ivaap-content__loading-icon{
+  @include Icons.icon-anim--rotated;
+  @include Icons.icon("spin");
+}
+
+.ivaap-content__error-icon{
+  @include Icons.icon("exclamation");
+}
+
+.ivaap-content__info-icon{
+  @include Icons.icon("info");
+}
+

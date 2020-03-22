@@ -1,0 +1,29 @@
+/*!
+ * Copyright: Copyright (c) 2013-2019 by INT, Inc.  All rights reserved.<br>
+ * Company: INT, Inc. <br>
+ *  INT PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ */
+
+
+@use "core" as Core;
+@use "textfield" as Text;
+@use "colors" as Colors;
+
+.ivaap-dialog{
+  position:relative;
+}
+.ivaap-dialog--modal{
+  @include Core.fixed;
+}
+.ivaap-dialog__background{
+  @include Core.absolute;
+  @include Core.flex--ver;
+  @include Core.flex-align__container-main-axis;
+  @include Core.flex-align__container-cross-axis;
+  background: rgba(211, 211, 211, 0.57);
+}
+.ivaap-dialog__content{
+  position:relative;
+  @include Core.corner(medium);
+  @include  Core.elevate;
+}

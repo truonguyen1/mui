@@ -1,0 +1,30 @@
+/*!
+ * Copyright: Copyright (c) 2013-2019 by INT, Inc.  All rights reserved.<br>
+ * Company: INT, Inc. <br>
+ *  INT PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ */
+
+
+$primary:#336a99;
+$on-primary:white;
+$bg: rgba(222, 222, 222, 0.73);
+$on-bg: #555555;
+$surface: white;
+$on-surface: #262626;
+$accent:#00c300;
+$on-accent:white;
+$alert:#d9534f;
+$on-alert:white;
+@use "colors" with (
+  $ivaap-theme-primary:$primary,
+  $ivaap-theme-accent:$accent,
+  $ivaap-theme-surface:$surface,
+  $ivaap-theme-alert:$alert,
+  $ivaap-theme-background:$bg,
+  $ivaap-theme-on-primary:$on-primary,
+  $ivaap-theme-on-accent:$on-accent,
+  $ivaap-theme-on-surface:$on-surface,
+  $ivaap-theme-on-alert:$on-alert,
+  $ivaap-theme-on-background:$on-bg
+);
+@use "ui";

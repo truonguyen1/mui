@@ -1,0 +1,57 @@
+/*
+ * Copyright: Copyright (c) 2013-2019 by INT, Inc.  All rights reserved.<br>
+ * Company: INT, Inc. <br>
+ *  INT PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ */
+
+@use "colors" as Colors;
+@use "core" as Core;
+@use "icons" as Icons;
+
+
+.ivaap-dropdown{
+  @include Core.flex--hor;
+  @include Core.flex-align__container-cross-axis;
+  @include Core.ripple;
+  background:none;
+  cursor:pointer;
+  background:none;
+  border:none;
+  outline:none;
+  overflow:hidden;
+  color:inherit;
+  font-weight: bold;
+  font-size: 13px;
+  padding:8px;
+  border-radius:3px;
+
+  &:focus,
+  &:hover{
+    @include Colors.background-hover('accent');
+  }
+  @include Colors.container("surface");
+
+}
+.ivaap-dropdown__display{
+  @include Core.flex-item--scaled;
+}
+.ivaap-dropdown__caret-icon{
+  @include Icons.icon("caret-down");
+  margin-left:8px;
+  margin-right:8px;
+}
+.ivaap-dropdown__label{
+  margin-left:8px;
+  height:24px;
+  line-height: 24px;
+
+}
+.ivaap-dropdown__image{
+  margin-left:8px;
+  width:100px;
+  height:24px;
+  line-height: 24px;
+  border-radius: 3px;
+  text-align: left;
+
+}
