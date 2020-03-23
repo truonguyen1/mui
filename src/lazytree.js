@@ -133,7 +133,7 @@ mui.LazyTree = function(){
     var LazyTreeList = function(options){
         mui.AbstractLazyList.call(this,options);
 
-        this._data = options['data'];
+
         this._iconVisible=true;
         this._descVisible = options['descriptionVisible'];
         this._customDisplayStrategy = options['customDisplayStrategy'];
@@ -151,7 +151,8 @@ mui.LazyTree = function(){
 
         this.addClass('ivaap-lazy-tree__lazy-list');
         this.getElement().addEventListener('click',this._handleClick.bind(this));
-        this.setData(options['data']);
+        this._data = options['data'];
+        this.update();
     };
     mui.inherits(LazyTreeList,mui.AbstractLazyList);
 
@@ -168,6 +169,7 @@ mui.LazyTree = function(){
         this._childItemTemplate = null;
         this._parentItemTemplate = null;
         this._hasSettings= null;
+        this._data =null;
         this._customDisplayStrategy = null;
         mui.AbstractLazyList.prototype.dispose.call(this);
     };
@@ -238,8 +240,8 @@ mui.LazyTree = function(){
     /**
      * @inheritDoc
      */
-    LazyTreeList.prototype.createContent=function(){
-        return this.create({'type':'ul','className':'ivaap-lazy-list__content'});
+    LazyTreeList.prototype.getChildrenIterator =function(){
+        return this._data.getChildren();
     };
 
     LazyTreeList.prototype.getChildTemplate = function(dataNode,it){
@@ -345,7 +347,7 @@ mui.LazyTree = function(){
      * @inheritDoc
      */
     LazyTreeList.prototype.createRow = function(dataNode,it){
-        var listData = this.getData();
+        var listData = this._data;
         if(listData==null)return;
         var nodeId = listData.getId(dataNode);
 

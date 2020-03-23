@@ -194,7 +194,9 @@ mui.DataGrid = function(){
      */
     var GridList = function(options){
         if(options==null)options = {};
-        mui.AbstractLazyList .call(this,options);
+        mui.AbstractLazyViewport .call(this,options);
+        this._rowHeight = options['rowHeight'] || 50;
+        this.addClass('ivaap-lazy-list');
         this.addClass('ivaap-lazy-grid-list');
         this._checkBoxVisible = options['checkBoxVisible'];
         this._checkBoxWidth = options['checkBoxWidth'] || 40;
@@ -227,9 +229,13 @@ mui.DataGrid = function(){
         this.getElement().addEventListener('click',this._clickHandler);
         this._selected = null;
         this._checked = new Set();
+        this._content = this.create({'type':'table','className':'ivaap-lazy-grid-list__table'});
+        this.add(this._content);
+        this._data = options['data'];
+        this.update();
 
     };
-    mui.inherits(GridList,mui.AbstractLazyList );
+    mui.inherits(GridList,mui.AbstractLazyViewport );
 
     GridList.prototype.dispose = function(){
         this.getElement().removeEventListener('click',this._clickHandler);
@@ -237,19 +243,16 @@ mui.DataGrid = function(){
         this._idToNodeMappings =null;
         this._idToElementMappings = null;
         this._checked=null;
-        mui.AbstractLazyList.prototype.dispose.call(this);
+        this._data = null;
+        this._content = null;
+        mui.AbstractLazyViewport.prototype.dispose.call(this);
     };
 
     GridList.prototype.setColumns = function(col){
         this._columns = col;
         this.update();
     };
-    /**
-     * @inheritDoc
-     */
-    GridList.prototype.createContent=function(){
-        return this.create({'type':'table','className':'ivaap-lazy-grid-list__table'});
-    };
+
     GridList.prototype.willRender = function(){
         this._idToNodeMappings =new Map();
         this._idToElementMappings = new Map();
@@ -291,9 +294,6 @@ mui.DataGrid = function(){
     GridList.prototype.getSelected = function(){
         return this._selected;
     };
-    GridList.prototype.onSkipRender = function(){
-        this._counter++;
-    };
     GridList.prototype.wasRendered = function(){
         var group =this.create({'type':'colgroup'});
         var columnIt = this._columns.getChildren();
@@ -310,8 +310,62 @@ mui.DataGrid = function(){
         }
         this._content.insertBefore(group,this._content.firstChild);
     };
+
+    /**
+     * @inheritDoc
+     */
+    GridList.prototype.renderContent = function(context){
+
+
+        var  minTop = context.getTop();
+
+        var topHeight = 0;
+        var bottomHeight = 0;
+
+        var bottomLimit =context.getBottom();
+
+        var runningHeight = 0;
+
+        var visibleFragment = document.createDocumentFragment();
+
+        var rowHeight = this._rowHeight;
+
+        var  viewPortHeight = bottomLimit-minTop;
+
+        var it = this._data.getChildren();
+        var renderedNodes = new Set();
+        while(it.hasNext() && viewPortHeight>0){
+            var nodeData = it.next();
+            var rHeight = typeof rowHeight=='function'?rowHeight(nodeData):rowHeight;
+            if(runningHeight>bottomLimit){
+                bottomHeight+=rHeight;
+                this._counter++;
+                continue;
+            }
+            runningHeight +=rHeight;
+            if(runningHeight+rowHeight<minTop){
+                topHeight+=rHeight;
+                this._counter++;
+                continue;
+            }
+            renderedNodes.add(nodeData);
+            var rowElement = this.createRow(nodeData,it);
+            if(rowElement==null)continue;
+            rowElement.style.height = rHeight+'px';
+            rowElement.style.lineHeight = rHeight+'px';
+            visibleFragment.appendChild(rowElement);
+        }
+        var topSpacerElm = this.create({'type':'tr','className':'ivaap-lazy-list__top-spacer'});
+        topSpacerElm.style.height = topHeight+'px';
+        var bottomSpacerElm = this.create({'type':'tr','className':'ivaap-lazy-list__bottom-spacer'});
+        bottomSpacerElm.style.height = bottomHeight+'px';
+        this._content.clear();
+        this._content.add(topSpacerElm,visibleFragment,bottomSpacerElm);
+    };
+
+
     GridList.prototype.createRow = function(rowData,it){
-        var data = this.getData();
+        var data = this._data;
         if(data==null){
             return ;
         }

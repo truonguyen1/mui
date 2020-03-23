@@ -199,7 +199,6 @@ mui.AbstractLazyViewport = function(){
  * @return {boolean}
  *
  * @typedef mui.AbstractLazyListOptions
- * @property {mui.LazyList.NodeVisible} isNodeVisibleCallback
  * @property {number} rowHeight
  * @property {mui.IEntityCollection} data
  *
@@ -214,13 +213,10 @@ mui.AbstractLazyList = function(){
     var AbstractLazyList =function(options){
         mui.AbstractLazyViewport .call(this,options);
         this.addClass('ivaap-lazy-list');
-        this._isNodeVisibleCallback = options['isNodeVisibleCallback'];
-        this._data =null;
-        this._viewPortHeight = 0;
         this._rowHeight = options['rowHeight'] || 35;
-        this._content = this.createContent();
+
+        this._content = this.create({'type':'ul','className':'ivaap-lazy-list__content'});
         this.add(this._content);
-        this.setData(options['data']);
     };
     mui.inherits(AbstractLazyList,mui.AbstractLazyViewport );
 
@@ -228,68 +224,42 @@ mui.AbstractLazyList = function(){
      * @inheritDoc
      */
     AbstractLazyList.prototype.dispose = function(){
-        this.getElement().removeEventListener('scroll',this._scrollHandler);
-
-        this._isNodeVisibleCallback = null;
-        this._data =null;
-        this._renderedNodes = null;
-        this._viewPortHeight = 0;
         this._rowHeight =null;
         this._content = null;
         mui.AbstractLazyViewport.prototype.dispose.call(this);
     };
+
     /**
      * @function
      * @abstract
      */
-    AbstractLazyList.prototype.createContent =function() {
-       throw "must implement";
+    AbstractLazyList.prototype.getChildrenIterator = function(){
+        throw "must implement";
     };
 
-    /**
-     * @inheritDoc
-     */
-    AbstractLazyList.prototype.getData = function(){
-        return this._data;
-    };
-
-    /**
-     * @inheritDoc
-     */
-    AbstractLazyList.prototype.setData = function(data){
-        this._data = data;
-        this.update();
-        return this;
-    };
 
     /**
      * @inheritDoc
      */
     AbstractLazyList.prototype.renderContent = function(context){
-        var  viewPortHeight = this._viewPortHeight;
-
-        var  minTop = this._scrollTop;
+        var  minTop = context.getTop();
 
         var topHeight = 0;
         var bottomHeight = 0;
 
-        var bottomLimit =viewPortHeight + minTop;
+        var bottomLimit =context.getBottom();
 
         var runningHeight = 0;
-
 
         var visibleFragment = document.createDocumentFragment();
 
         var rowHeight = this._rowHeight;
 
-        var it = this._data.getChildren();
-        var shouldRenderCallback = this._isNodeVisibleCallback;
+        var it = this.getChildrenIterator();
         var renderedNodes = new Set();
+        var  viewPortHeight = bottomLimit-minTop;
         while(it.hasNext() && viewPortHeight>0){
             var nodeData = it.next();
-            if((shouldRenderCallback && !shouldRenderCallback(nodeData)) || !!this.isNodeHidden(nodeData)){
-                continue;
-            }
             var rHeight = typeof rowHeight=='function'?rowHeight(nodeData):rowHeight;
             if(runningHeight>bottomLimit){
                 bottomHeight+=rHeight;
@@ -309,16 +279,14 @@ mui.AbstractLazyList = function(){
             rowElement.style.lineHeight = rHeight+'px';
             visibleFragment.appendChild(rowElement);
         }
-        this._renderedNodes = renderedNodes;
         var topSpacerElm = this.create({'className':'ivaap-lazy-list__top-spacer'});
         topSpacerElm.style.height = topHeight+'px';
         var bottomSpacerElm = this.create({'className':'ivaap-lazy-list__bottom-spacer'});
         bottomSpacerElm.style.height = bottomHeight+'px';
-
         this._content.clear();
         this._content.add(topSpacerElm,visibleFragment,bottomSpacerElm);
-    };
 
+    };
     /**
      * Generate row element
      * @protected
@@ -337,14 +305,5 @@ mui.AbstractLazyList = function(){
      * @virtual
      */
     AbstractLazyList.prototype.onSkipRender = function(){}
-    /**
-     * Check if node is hidden
-     * @protected
-     * @virtual
-     * @function
-     * @param {*} node
-     * @return boolean
-     */
-    AbstractLazyList.prototype.isNodeHidden = function(node){}
     return AbstractLazyList;
 }();

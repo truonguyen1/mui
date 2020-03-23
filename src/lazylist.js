@@ -40,6 +40,7 @@
  *
 */
 mui.LazyList = function(){
+
     var LazyList = function(options){
         mui.AbstractLazyList.call(this,options);
 
@@ -98,7 +99,9 @@ mui.LazyList = function(){
 
         this._content.addEventListener('click',this._itemClickHandler);
         this._content.addEventListener('dblclick',this._itemDblClickHandler);
-        this.setData(options['data']);
+
+        this._data = options['data'];
+        this.update();
     };
     mui.inherits(LazyList,mui.AbstractLazyList);
 
@@ -108,7 +111,6 @@ mui.LazyList = function(){
     LazyList.prototype.dispose = function(){
         this._content.removeEventListener('click',this._itemClickHandler);
         this._content.removeEventListener('dblclick',this._itemDblClickHandler);
-        this._content = null;
         this._itemClickHandler = null;
         this._itemDblClickHandler = null;
         this._idToNodeMappings = null;
@@ -125,11 +127,8 @@ mui.LazyList = function(){
         mui.AbstractLazyList.prototype.dispose.call(this);
     };
 
-    /**
-     * @inheritDoc
-     */
-    LazyList.prototype.createContent=function(node){
-        return this.create({'type':'ul','className':'ivaap-lazy-list__content'});
+    LazyList.prototype.getChildrenIterator=function(){
+        return this._data.getChildren();
     };
     /**
      * Is selected
@@ -169,26 +168,6 @@ mui.LazyList = function(){
 
         // this._idToNodeMappings
         // this._requestRender();
-    };
-
-    /**
-     * Set text filter
-     * @param {string} txt
-     * @return {mui.LazyList}
-     */
-    LazyList.prototype.setTextFilter=function(txt){
-        this._textFilter = txt;
-        this.update();
-        return this;
-    };
-
-    /**
-     * @inheritDoc
-     */
-    LazyList.prototype.isNodeHidden=function(node){
-        if(!this._textFilter)return false;
-        return node.getName().toLowerCase().indexOf(this._textFilter.toLowerCase())==-1;
-
     };
     /**
      * @inheritDoc
@@ -237,7 +216,7 @@ mui.LazyList = function(){
      */
     LazyList.prototype.createRow=function(dataNode) {
         var icon;
-        var listData= this.getData();
+        var listData= this._data;
         if(this._itemTemplate==null) {
             var item = this.create({
                 'type':'li',
@@ -320,7 +299,5 @@ mui.LazyList = function(){
         this._idToNodeMappings.set(dataNode.getId(),dataNode);
         this._idToRenderedElement.set(dataNode.getId(),newItem);
         return newItem;
-    };
-
-    return LazyList;
+    };    return LazyList;
 }();
