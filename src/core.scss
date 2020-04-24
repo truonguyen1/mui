@@ -65,19 +65,19 @@ $space__values: (
     border-radius:map.get($shape__corners,$type);
 }
 @each $type, $value in $shape__corners{
-  .ivaap-corner__all--#{$type}{
+  .mui-corner__all--#{$type}{
     border-radius:$value;
   }
-  .ivaap-corner__top-left--#{$type}{
+  .mui-corner__top-left--#{$type}{
     border-top-left-radius:$value;
   }
-  .ivaap-corner__top-right--#{$type}{
+  .mui-corner__top-right--#{$type}{
     border-top-right-radius:$value;
   }
-  .ivaap-corner__bottom-left--#{$type}{
+  .mui-corner__bottom-left--#{$type}{
     border-bottom-left-radius:$value;
   }
-  .ivaap-corner__bottom-right--#{$type}{
+  .mui-corner__bottom-right--#{$type}{
     border-bottom-right-radius:$value;
   }
 }
@@ -95,14 +95,14 @@ $space__values: (
   bottom: $bottom;
   right:$right;
 }
-.ivaap-absolute--filled{
+.mui-absolute--filled{
   @include absolute;
 }
 
 @mixin link--clickable{
   cursor:pointer;
 }
-.ivaap-link--clickable{
+.mui-link--clickable{
   @include link--clickable;
 }
 @mixin flex--inline{
@@ -112,7 +112,7 @@ $space__values: (
   display: --webkit-inline-flex;
   display: inline-flex;
 }
-.ivaap-flex--inline{
+.mui-flex--inline{
   @include flex--inline;
 }
 @mixin flex{
@@ -122,7 +122,7 @@ $space__values: (
   display: --webkit-flex;
   display: flex;
 }
-.ivaap-flex{
+.mui-flex{
   @include flex;
 }
 @mixin flex--hor{
@@ -130,7 +130,7 @@ $space__values: (
   flex-direction: row;
   -ms-flex-direction: row;
 }
-.ivaap-flex--hor{
+.mui-flex--hor{
   @include flex--hor;
 }
 
@@ -138,7 +138,7 @@ $space__values: (
   -webkit-box-shadow: 0 3px 3px -2px rgba(0,0,0,.2), 0 3px 4px 0 rgba(0,0,0,.14), 0 1px 8px 0 rgba(0,0,0,.12);
   box-shadow: 0 3px 3px -2px rgba(0,0,0,.2), 0 3px 4px 0 rgba(0,0,0,.14), 0 1px 8px 0 rgba(0,0,0,.12);
 }
-.ivaap-elevate--z3{
+.mui-elevate--z3{
   @include elevate;
 }
 
@@ -147,7 +147,7 @@ $space__values: (
   flex-direction: column;
   -ms-flex-direction: column;
 }
-.ivaap-flex--ver{
+.mui-flex--ver{
   @include flex--ver;
 }
 
@@ -155,7 +155,7 @@ $space__values: (
   flex: 1 1 auto;
   -ms-flex: 1 1 auto;
 }
-.ivaap-flex-item--scaled{
+.mui-flex-item--scaled{
   @include flex-item--scaled;
 }
 
@@ -169,13 +169,13 @@ $space__values: (
   -ms-align-items: $value;
   -ms-flex-align: $value;
 }
-.ivaap-flex-align__container-cross-axis--center{
+.mui-flex-align__container-cross-axis--center{
   @include flex-align__container-cross-axis;
 }
-.ivaap-flex-align__container-cross-axis--start{
+.mui-flex-align__container-cross-axis--start{
   @include flex-align__container-cross-axis(flex-start);
 }
-.ivaap-flex-align__container-cross-axis--end{
+.mui-flex-align__container-cross-axis--end{
   @include flex-align__container-cross-axis(flex-end);
 }
 @mixin flex-align__container-main-axis($value:center){
@@ -183,13 +183,13 @@ $space__values: (
   -ms-justify-content: $value;
   -ms-flex-pack: $value;
 }
-.ivaap-flex-align__container-main-axis--center{
+.mui-flex-align__container-main-axis--center{
   @include flex-align__container-main-axis;
 }
-.ivaap-flex-align__container-main-axis--start{
+.mui-flex-align__container-main-axis--start{
   @include flex-align__container-main-axis(flex-start);
 }
-.ivaap-flex-align__container-main-axis--end{
+.mui-flex-align__container-main-axis--end{
   @include flex-align__container-main-axis(flex-end);
 }
 
@@ -231,34 +231,34 @@ $space__values: (
   color:Colors.onColor($theme)
 }
 @each $type, $value in $space__values{
-  .ivaap-padding__all--#{$type}{
+  .mui-padding__all--#{$type}{
     padding:$value;
   }
-  .ivaap-padding__left--#{$type}{
+  .mui-padding__left--#{$type}{
     padding-left:$value;
   }
-  .ivaap-padding__right--#{$type}{
+  .mui-padding__right--#{$type}{
     padding-right:$value;
   }
-  .ivaap-padding__bottom--#{$type}{
+  .mui-padding__bottom--#{$type}{
     padding-bottom:$value;
   }
-  .ivaap-padding__top--#{$type}{
+  .mui-padding__top--#{$type}{
     padding-top:$value;
   }
-  .ivaap-margin__all--#{$type}{
+  .mui-margin__all--#{$type}{
     margin:$value;
   }
-  .ivaap-margin__left--#{$type}{
+  .mui-margin__left--#{$type}{
     margin-left:$value;
   }
-  .ivaap-margin__right--#{$type}{
+  .mui-margin__right--#{$type}{
     margin-right:$value;
   }
-  .ivaap-margin__bottom--#{$type}{
+  .mui-margin__bottom--#{$type}{
     margin-bottom:$value;
   }
-  .ivaap-margin__top--#{$type}{
+  .mui-margin__top--#{$type}{
     margin-top:$value;
   }
 }

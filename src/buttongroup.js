@@ -40,11 +40,11 @@ mui.ButtonGroup = function(){
         this._onActiveChanged = options['onActiveChanged'];
         this._onSelectedChanged = options['onSelectedChanged'];
         this._active = [];
-        this.addClass('ivaap-button-group');
+        this.addClass('mui-button-group');
         if(options['vertical']){
-            this.addClass('ivaap-button-group--ver');
+            this.addClass('mui-button-group--ver');
         }else{
-            this.addClass('ivaap-button-group--hor');
+            this.addClass('mui-button-group--hor');
         }
         this.setItems (options['items']);
     };
@@ -88,14 +88,14 @@ mui.ButtonGroup = function(){
             var btn = new mui.Button({
                 'label':items.getName(act),
                 'icon':items.getIcon(act),
-                'className':'ivaap-button-group__btn',
+                'className':'mui-button-group__btn',
                 'onClick':this._handleBtnClick.bind(this,id)
             });
             if(this._active.indexOf(id)!==-1){
-                btn.addClass('ivaap-button-group__btn--active');
+                btn.addClass('mui-button-group__btn--active');
             }
             if(this._selected==id){
-                btn.addClass('ivaap-button-group__btn--selected');
+                btn.addClass('mui-button-group__btn--selected');
             }
             btn.attachTo(this.getElement());
             cached.set(id,btn);
@@ -125,11 +125,11 @@ mui.ButtonGroup = function(){
     ButtonGroup.prototype.setSelected = function(id){
         if(this._selected===id)return this;
         if(this._cachedBtn && this._cachedBtn.get(this._selected)){
-            this._cachedBtn.get(this._selected).removeClass('ivaap-button-group__btn--selected');
+            this._cachedBtn.get(this._selected).removeClass('mui-button-group__btn--selected');
         }
         this._selected = id;
         if(this._cachedBtn && this._cachedBtn.get(id)){
-            this._cachedBtn.get(id).addClass('ivaap-button-group__btn--selected');
+            this._cachedBtn.get(id).addClass('mui-button-group__btn--selected');
         }
         if(this._onSelectedChanged){
             this._onSelectedChanged(id,this);
@@ -146,12 +146,12 @@ mui.ButtonGroup = function(){
         if(idx!==-1){
             this._active.splice(idx,1);
             if(this._cachedBtn&& this._cachedBtn.get(id)){
-                this._cachedBtn.get(id).removeClass('ivaap-button-group__btn--active');
+                this._cachedBtn.get(id).removeClass('mui-button-group__btn--active');
             }
         }else{
             this._active.push(id);
             if(this._cachedBtn&& this._cachedBtn.get(id)){
-                this._cachedBtn.get(id).addClass('ivaap-button-group__btn--active');
+                this._cachedBtn.get(id).addClass('mui-button-group__btn--active');
             }
         }
         if(this._onActiveChanged){

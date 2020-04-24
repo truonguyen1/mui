@@ -2,30 +2,30 @@
 @use "sass:map";
 @use "sass:color";
 
-$ivaap-theme-primary:#336a99 !default;
-$ivaap-theme-accent:#00c300 !default;
-$ivaap-theme-surface:white !default;
-$ivaap-theme-alert:#d9534f !default;;
-$ivaap-theme-background:#e5e5e5 !default;
-$ivaap-theme-on-primary:white !default;
-$ivaap-theme-on-accent:white !default;
-$ivaap-theme-on-surface:#262626 !default;
-$ivaap-theme-on-alert:white !default;
-$ivaap-theme-on-background:black !default;
+$mui-theme-primary:#336a99 !default;
+$mui-theme-accent:#00c300 !default;
+$mui-theme-surface:white !default;
+$mui-theme-alert:#d9534f !default;;
+$mui-theme-background:#e5e5e5 !default;
+$mui-theme-on-primary:white !default;
+$mui-theme-on-accent:white !default;
+$mui-theme-on-surface:#262626 !default;
+$mui-theme-on-alert:white !default;
+$mui-theme-on-background:black !default;
 
 $themes-colors:(
-  "primary":$ivaap-theme-primary,
-  "alert":$ivaap-theme-alert,
-  "accent":$ivaap-theme-accent,
-  "surface":$ivaap-theme-surface,
-  "background":$ivaap-theme-background
+  "primary":$mui-theme-primary,
+  "alert":$mui-theme-alert,
+  "accent":$mui-theme-accent,
+  "surface":$mui-theme-surface,
+  "background":$mui-theme-background
 ) !default;
 $on-themes-colors:(
-  "primary":$ivaap-theme-on-primary,
-  "alert":$ivaap-theme-on-alert,
-  "accent":$ivaap-theme-on-accent,
-  "surface":$ivaap-theme-on-surface,
-  "background":$ivaap-theme-on-background
+  "primary":$mui-theme-on-primary,
+  "alert":$mui-theme-on-alert,
+  "accent":$mui-theme-on-accent,
+  "surface":$mui-theme-on-surface,
+  "background":$mui-theme-on-background
 ) !default;
 
 /// Slightly lighten a color
@@ -128,32 +128,32 @@ $on-themes-colors:(
 }
 
 @each $name, $color in $themes-colors{
-  .ivaap-bg-of-#{$name}{
+  .mui-bg-of-#{$name}{
       @include background($name);
   }
-  .ivaap-bg-of-#{$name}{
+  .mui-bg-of-#{$name}{
     @include background($name);
   }
-  .ivaap-txt-of-#{$name}{
+  .mui-txt-of-#{$name}{
     @include text($name);
   }
-  .ivaap-border-of-#{$name}{
+  .mui-border-of-#{$name}{
     @include border($name);
   }
 
-  .ivaap-text-on-#{$name}{
+  .mui-text-on-#{$name}{
     @include text-on-background($name);
   }
-  .ivaap-disabled-text-on-#{$name}{
+  .mui-disabled-text-on-#{$name}{
     @include disabled-text-on-background($name);
   }
-  .ivaap-border-on-#{$name}{
+  .mui-border-on-#{$name}{
     @include border-on-background($name);
   }
-  .ivaap-container-of-#{$name}{
+  .mui-container-of-#{$name}{
     @include container($name);
   }
-  .ivaap-container-bold-of-#{$name}{
+  .mui-container-bold-of-#{$name}{
     @include container-bold($name);
   }
 }

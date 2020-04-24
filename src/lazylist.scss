@@ -6,14 +6,14 @@
 @use "core" as Core;
 @use "colors" as Colors;
 @use "icons" as Icons;
-.ivaap-lazy-list{
+.mui-lazy-list{
   overflow:auto;
 }
-.ivaap-lazy-list__content{
+.mui-lazy-list__content{
   margin: 0px;
   padding: 0px
 }
-.ivaap-lazy-list__item{
+.mui-lazy-list__item{
   @include Core.flex--hor;
   @include Core.flex-align__container-cross-axis;
   box-sizing: border-box;
@@ -21,7 +21,7 @@
   position:relative;
   //@include Core.hover-focus-background("accent");
   //@include Core.ripple;
-  &:not(.ivaap-lazy-list__item--selected) {
+  &:not(.mui-lazy-list__item--selected) {
     &:hover,
     &:focus {
       @include Colors.background-hover("accent");
@@ -29,10 +29,10 @@
   }
 
 }
-.ivaap-lazy-list__action-container{
+.mui-lazy-list__action-container{
     @include Core.flex--hor;
 }
-.ivaap-lazy-list__action{
+.mui-lazy-list__action{
   @include Core.flex--hor;
   @include Core.flex-align__container-cross-axis;
   background:none;
@@ -49,20 +49,20 @@
     @include Colors.background-hover("accent");
   }
 }
-.ivaap-lazy-list__action-label:last-child{
+.mui-lazy-list__action-label:last-child{
   margin-left:4px;
 }
-.ivaap-lazy-list__item--selected{
+.mui-lazy-list__item--selected{
   @include Core.active-container("accent");
 }
-.ivaap-lazy-list__text-container{
+.mui-lazy-list__text-container{
   @include Core.flex-item--scaled;
   @include Core.flex--ver;
   @include Core.flex-align__container-main-axis;
   padding:0px 8px;
 
 }
-.ivaap-lazy-list__item-desc{
+.mui-lazy-list__item-desc{
   line-height: 100%;
   font-size: 9px;
   opacity: 0.6;
@@ -70,20 +70,20 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.ivaap-lazy-list__item-title{
+.mui-lazy-list__item-title{
   line-height: 100%;
 }
-.ivaap-lazy-list__item-icon{
+.mui-lazy-list__item-icon{
   margin-left:8px;
 }
-.ivaap-lazy-list__item-icon-thumbnail{
+.mui-lazy-list__item-icon-thumbnail{
   height:90%;
   width:60px;
   background-size: cover;
   background-position: center;
 }
 
-.ivaap-lazy-list__setting-icon{
+.mui-lazy-list__setting-icon{
   @include Icons.icon("three-dots-vertical");
   background:none;
   border:none;

@@ -1,71 +1,71 @@
 @use "core" as Core;
 @use "colors" as Colors;
 
-.ivaap-split-container{
+.mui-split-container{
   overflow:hidden;
 }
 
-.ivaap-v-container{
+.mui-v-container{
   @include  Core.flex--ver;
 }
-.ivaap-h-container{
+.mui-h-container{
   @include  Core.flex--hor;
 }
-.ivaap-split-container__main{
+.mui-split-container__main{
   @include  Core.flex-item--scaled;
   order:1;
   position:relative;
 
 }
-.ivaap-split-container__sub{
+.mui-split-container__sub{
   position:relative;
   order:0;
 }
 
-.ivaap-split-container__sub--anim
+.mui-split-container__sub--anim
 {
   -webkit-transition: margin 200ms; /* Safari */
   transition: margin 200ms;
 }
 
-.ivaap-split-container__sub--west,
-.ivaap-split-container__sub--south{
+.mui-split-container__sub--west,
+.mui-split-container__sub--south{
   order:2;
 }
 
-.ivaap-resizable{
+.mui-resizable{
   position:relative;
   //background:lightgrey;
 }
-.ivaap-resizable__resizer{
+.mui-resizable__resizer{
   position: absolute;
   z-index: 1;
   &:hover{
     @include Colors.background-hover("accent");
   }
 }
-.ivaap-resizable__north-resizer{
+.mui-resizable__north-resizer{
   top:-2px;
   left:0px;
   right:0px;
   height:4px;
   cursor: n-resize;
 }
-.ivaap-resizable__south-resizer{
+.mui-resizable__south-resizer{
   bottom:-2px;
   left:0px;
   right:0px;
   height:4px;
   cursor: n-resize;
 }
-.ivaap-resizable__west-resizer{
+.mui-resizable__west-resizer{
   right:-2px;
   top:0px;
   bottom:0px;
   width:4px;
   cursor: w-resize;
 }
-.ivaap-resizable__east-resizer{
+.mui-resizable__east-resizer{
   left:-2px;
   top:0px;
   bottom:0px;

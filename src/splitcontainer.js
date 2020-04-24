@@ -40,11 +40,11 @@ mui.SplitContainer = (function () {
         mui.Element.call(this, options);
         this._pos = options['position'] || 'west';
         this._onSizeChanged = options['onSizeChanged'];
-        this._animClass = 'ivaap-split-container__sub--anim';
+        this._animClass = 'mui-split-container__sub--anim';
 
-        this.addClass('ivaap-split-container');
-        this.addClass(this._pos=='north' || this._pos=='south'?'ivaap-v-container':'ivaap-h-container')
-        this._main = this.create('ivaap-split-container__main');
+        this.addClass('mui-split-container');
+        this.addClass(this._pos=='north' || this._pos=='south'?'mui-v-container':'mui-h-container')
+        this._main = this.create('mui-split-container__main');
         this.add(this._main);
 
         this._sub = new mui.ResizableContainer({
@@ -61,8 +61,8 @@ mui.SplitContainer = (function () {
                 }
             }.bind(this)
         });
-        this._sub.addClass('ivaap-split-container__sub');
-        this._sub.addClass('ivaap-split-container__sub--'+this._pos);
+        this._sub.addClass('mui-split-container__sub');
+        this._sub.addClass('mui-split-container__sub--'+this._pos);
         // this._sub.attachTo(this.getElement());
 
         if(options['subVisible']==false){
@@ -277,7 +277,7 @@ mui.ResizableContainer = (function () {
         }
         this._minSize = MIN_SIZE|| options['minSize'];
         mui.Element.call(this, options);
-        this.addClass('ivaap-resizable');
+        this.addClass('mui-resizable');
         if(options['position']){
             this.setResizerLocation(options['position']);
         }
@@ -328,7 +328,7 @@ mui.ResizableContainer = (function () {
         if(this._resizer && this._resizer.__position==pos){
             return;
         }
-        var className = 'ivaap-resizable__resizer ivaap-resizable__'+pos+'-resizer';
+        var className = 'mui-resizable__resizer mui-resizable__'+pos+'-resizer';
         if(this._resizer==null){
             this._resizer = this.create(className);
             this.add(this._resizer);

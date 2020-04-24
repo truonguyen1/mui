@@ -81,7 +81,7 @@ mui.DataGrid = function(){
     var DataGrid = function(options){
         if(options==null)options = {};
         mui.Element.call(this,options);
-        this.addClass('ivaap-datagrid');
+        this.addClass('mui-datagrid');
 
         this._header = new GridHeader({
             'checkBoxVisible':options['checkBoxVisible'],
@@ -104,7 +104,7 @@ mui.DataGrid = function(){
                 this._header.enableBottomShadow(!!top);
             }.bind(this)
         });
-        this._content = this.create('ivaap-datagrid__content');
+        this._content = this.create('mui-datagrid__content');
         this.add(this._content);
         this._header.attachTo(this._content);
         this._list.attachTo(this._content);
@@ -196,15 +196,15 @@ mui.DataGrid = function(){
         if(options==null)options = {};
         mui.AbstractLazyViewport .call(this,options);
         this._rowHeight = options['rowHeight'] || 50;
-        this.addClass('ivaap-lazy-list');
-        this.addClass('ivaap-lazy-grid-list');
+        this.addClass('mui-lazy-list');
+        this.addClass('mui-lazy-grid-list');
         this._checkBoxVisible = options['checkBoxVisible'];
         this._checkBoxWidth = options['checkBoxWidth'] || 40;
         this._stripped = options['stripped'];
         this._clickHandler = function(evt){
             var found,args;
             if(options['onCheckBoxClick']){
-                found = this.closest(evt.target, 'ivaap-lay-grid-list__checkbox-icon');
+                found = this.closest(evt.target, 'mui-lay-grid-list__checkbox-icon');
                 if (found) {
                     args = new mui.Event(this, this._idToNodeMappings.get(found.__id),evt);
                     options['onCheckBoxClick'](args);
@@ -215,7 +215,7 @@ mui.DataGrid = function(){
 
             }
             if(options['onRowClick']) {
-                found = this.closest(evt.target, 'ivaap-lazy-grid-list__row');
+                found = this.closest(evt.target, 'mui-lazy-grid-list__row');
                 if (found) {
                     args = new mui.Event(this,this._idToNodeMappings.get(found.__id),evt);
                     options['onRowClick'](args);
@@ -229,7 +229,7 @@ mui.DataGrid = function(){
         this.getElement().addEventListener('click',this._clickHandler);
         this._selected = null;
         this._checked = new Set();
-        this._content = this.create({'type':'table','className':'ivaap-lazy-grid-list__table'});
+        this._content = this.create({'type':'table','className':'mui-lazy-grid-list__table'});
         this.add(this._content);
         this._data = options['data'];
         this.update();
@@ -262,13 +262,13 @@ mui.DataGrid = function(){
         this._checked.delete(id);
         var elm = this._idToElementMappings.get(id);
         if(elm==null)return;
-        elm.childNodes[0].childNodes[0].classList.remove('ivaap-lay-grid-list__checkbox-icon--checked');
+        elm.childNodes[0].childNodes[0].classList.remove('mui-lay-grid-list__checkbox-icon--checked');
     };
     GridList.prototype.addChecked = function(id){
         this._checked.add(id);
         var elm = this._idToElementMappings.get(id);
         if(elm==null)return;
-        elm.childNodes[0].childNodes[0].classList.add('ivaap-lay-grid-list__checkbox-icon--checked');
+        elm.childNodes[0].childNodes[0].classList.add('mui-lay-grid-list__checkbox-icon--checked');
     };
     GridList.prototype.toggleChecked = function(id){
         if(this._checked.has(id)){
@@ -281,13 +281,13 @@ mui.DataGrid = function(){
         if(this._selected===id)return;
         var elm = this._idToElementMappings.get(this._selected);
         if(elm){
-            elm.classList.remove('ivaap-lazy-grid-list__row--selected');
+            elm.classList.remove('mui-lazy-grid-list__row--selected');
         }
         this._selected = id;
 
         elm = this._idToElementMappings.get(this._selected);
         if(elm){
-            elm.classList.add('ivaap-lazy-grid-list__row--selected');
+            elm.classList.add('mui-lazy-grid-list__row--selected');
         }
 
     };
@@ -355,9 +355,9 @@ mui.DataGrid = function(){
             rowElement.style.lineHeight = rHeight+'px';
             visibleFragment.appendChild(rowElement);
         }
-        var topSpacerElm = this.create({'type':'tr','className':'ivaap-lazy-list__top-spacer'});
+        var topSpacerElm = this.create({'type':'tr','className':'mui-lazy-list__top-spacer'});
         topSpacerElm.style.height = topHeight+'px';
-        var bottomSpacerElm = this.create({'type':'tr','className':'ivaap-lazy-list__bottom-spacer'});
+        var bottomSpacerElm = this.create({'type':'tr','className':'mui-lazy-list__bottom-spacer'});
         bottomSpacerElm.style.height = bottomHeight+'px';
         this._content.clear();
         this._content.add(topSpacerElm,visibleFragment,bottomSpacerElm);
@@ -376,7 +376,7 @@ mui.DataGrid = function(){
         var columnIt;
         if(row==null) {
             row = this.create({
-                'className': 'ivaap-lazy-grid-list__row',
+                'className': 'mui-lazy-grid-list__row',
                 'type':'tr'
             });
 
@@ -385,8 +385,8 @@ mui.DataGrid = function(){
 
             if(this._checkBoxVisible) {
                 rowFragment.add(
-                    this.create({'className': 'ivaap-lazy-grid-list__cell ivaap-lazy-grid-list__left-corner-cell','type': 'span'}).add(
-                        this.create({'className':'ivaap-lay-grid-list__checkbox-icon','type':'button'})
+                    this.create({'className': 'mui-lazy-grid-list__cell mui-lazy-grid-list__left-corner-cell','type': 'span'}).add(
+                        this.create({'className':'mui-lay-grid-list__checkbox-icon','type':'button'})
                     )
                 );
             }
@@ -398,18 +398,18 @@ mui.DataGrid = function(){
             while(columnIt.hasNext()){
                 var col = columnIt.next();
                 cellElement = this.create({
-                    'className': 'ivaap-lazy-grid-list__cell ivaap-lazy-grid-list__data-cell',
+                    'className': 'mui-lazy-grid-list__cell mui-lazy-grid-list__data-cell',
                     'type':'td'
                 });
                 if(i==0){
                     var icon = this.create({
-                        "className":'ivaap-lazy-grid-list__cell-icon',
+                        "className":'mui-lazy-grid-list__cell-icon',
                         'type':'span'
                     });
                     cellElement.appendChild(icon);
                 }
                 var cellName = this.create({
-                    'className':'ivaap-lazy-grid-list__cell-name',
+                    'className':'mui-lazy-grid-list__cell-name',
                     'type':'span'
                 });
                 cellName.textContent = data.getCellName(rowData,col);
@@ -444,16 +444,16 @@ mui.DataGrid = function(){
         }
         row.__id = id;
         if(this._selected===id){
-            row.classList.add('ivaap-lazy-grid-list__row--selected');
+            row.classList.add('mui-lazy-grid-list__row--selected');
         }
         if(this._checkBoxVisible){
             row.childNodes[0].childNodes[0].__id = id;
             if(this._checked.has(id)){
-                row.childNodes[0].childNodes[0].classList.add('ivaap-lay-grid-list__checkbox-icon--checked');
+                row.childNodes[0].childNodes[0].classList.add('mui-lay-grid-list__checkbox-icon--checked');
             }
         }
         if(this._stripped){
-            row.classList.add(this._counter%2==0?'ivaap-lazy-grid-list__row--even':'ivaap-lazy-grid-list__row--odd');
+            row.classList.add(this._counter%2==0?'mui-lazy-grid-list__row--even':'mui-lazy-grid-list__row--odd');
         }
         this._counter++;
         this._idToElementMappings.set(id,row);
@@ -463,9 +463,9 @@ mui.DataGrid = function(){
     var GridHeader = function(options){
         mui.Element.call(this,{
             'type':'table',
-            'className':'ivaap-lazy-grid-header'
+            'className':'mui-lazy-grid-header'
         });
-        this._row = this.create({'type':'tr','className':'ivaap-lazy-grid-header__row'});
+        this._row = this.create({'type':'tr','className':'mui-lazy-grid-header__row'});
         this.add(this._row);
         this._columnSizes = new Map();
         this._checkBoxVisible = options['checkBoxVisible'];
@@ -478,7 +478,7 @@ mui.DataGrid = function(){
         this._clickHandler = function(evt){
             var found;
             if(options['onCheckAllClick']){
-                found = this.closest(evt.target,'ivaap-lazy-grid-header__checkbox-icon');
+                found = this.closest(evt.target,'mui-lazy-grid-header__checkbox-icon');
                 if(found){
                     options['onCheckAllClick']();
                     return;
@@ -486,7 +486,7 @@ mui.DataGrid = function(){
 
             }
             if(this._sortEnabled===true && options['onSortClick']) {
-                found = this.closest(evt.target, 'ivaap-lazy-grid-header__sort-btn');
+                found = this.closest(evt.target, 'mui-lazy-grid-header__sort-btn');
                 if (found) {
                     options['onSortClick'](found.__id);
                 }
@@ -519,8 +519,8 @@ mui.DataGrid = function(){
         var it = columns.getChildren();
         this._row.clear();
         if(this._checkBoxVisible){
-            var cb =this.create({'type':'span','className':'ivaap-lazy-grid-header__cell ivaap-lazy-grid-header__left-corner-cell'}).add(
-                this.create({'type':'button','className':'ivaap-lazy-grid-header__checkbox-icon '+(this._isAllChecked?'ivaap-lazy-grid-header__checkbox-icon--checked':'')})
+            var cb =this.create({'type':'span','className':'mui-lazy-grid-header__cell mui-lazy-grid-header__left-corner-cell'}).add(
+                this.create({'type':'button','className':'mui-lazy-grid-header__checkbox-icon '+(this._isAllChecked?'mui-lazy-grid-header__checkbox-icon--checked':'')})
             );
             cb.style.width = this._checkBoxWidth+'px';
             this._row.add(cb);
@@ -530,14 +530,14 @@ mui.DataGrid = function(){
             var id = columns.getId(col);
             var columnName = columns.getName(col);
             var canSort = columns.canSort(col);
-            var td = this.create({'type':'td','className':'ivaap-lazy-grid-header__cell ivaap-lazy-grid-header__data-cell '});
+            var td = this.create({'type':'td','className':'mui-lazy-grid-header__cell mui-lazy-grid-header__data-cell '});
             if(canSort){
                 var sortDir = columns.getSortDirection(col);
-                var sortBtn = this.create({'type':'button','className':'ivaap-lazy-grid-header__sort-btn '+(sortDir=='asc'?'ivaap-lazy-grid-header__sort-btn--asc':'ivaap-lazy-grid-header__sort-btn--dsc')});
+                var sortBtn = this.create({'type':'button','className':'mui-lazy-grid-header__sort-btn '+(sortDir=='asc'?'mui-lazy-grid-header__sort-btn--asc':'mui-lazy-grid-header__sort-btn--dsc')});
                 sortBtn.__id = id;
                 td.add(
-                    this.create('ivaap-lazy-grid-header__container').add(
-                        this.create({'type':'span','className':'ivaap-lazy-grid-header__label','text':columnName}),
+                    this.create('mui-lazy-grid-header__container').add(
+                        this.create({'type':'span','className':'mui-lazy-grid-header__label','text':columnName}),
                         sortBtn
                     )
                 );
@@ -548,7 +548,7 @@ mui.DataGrid = function(){
             this._row.add(td);
         }
         if(this._scrollbarWidth){
-            var scrollbar =this.create({'type':'span','className':'ivaap-lazy-grid-header__cell ivaap-lazy-grid-header__right-corner-cell'});
+            var scrollbar =this.create({'type':'span','className':'mui-lazy-grid-header__cell mui-lazy-grid-header__right-corner-cell'});
             scrollbar.style.width = this._scrollbarWidth+'px';
             this._row.add(scrollbar);
         }
@@ -564,9 +564,9 @@ mui.DataGrid = function(){
         }
         this._bottomShadow = bool;
         if(bool){
-            this.addClass('ivaap-lazy-grid-header--shadow');
+            this.addClass('mui-lazy-grid-header--shadow');
         }else{
-            this.removeClass('ivaap-lazy-grid-header--shadow');
+            this.removeClass('mui-lazy-grid-header--shadow');
         }
     };
     GridHeader.prototype.setColumns = function(columns){

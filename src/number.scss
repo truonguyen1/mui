@@ -7,7 +7,7 @@
 @use "colors" as Colors;
 @use "icons" as Icons;
 
-.ivaap-number{
+.mui-number{
   position:relative;
   box-sizing:border-box;
   //background:white;
@@ -17,7 +17,7 @@
   @include  Colors.text-on-background("surface");
 }
 
-.ivaap-number__input{
+.mui-number__input{
   padding:16px 46px;
   padding-left:16px;
   padding-right:92px;
@@ -41,10 +41,10 @@
 
   @include  Colors.background("surface");
 }
-.ivaap-number--no-control{
+.mui-number--no-control{
   padding:16px;
 }
-.ivaap-number__incr{
+.mui-number__incr{
   @include Core.ripple;
   position:absolute;
   top: 1px;
@@ -64,7 +64,7 @@
   @include  Colors.container-bold("surface");
   //border-left:1px solid lightgrey;
 }
-.ivaap-number__decr{
+.mui-number__decr{
   @include Core.ripple;
   position:absolute;
   background:none;
@@ -86,10 +86,10 @@
 
   //border-right:1px solid lightgrey;
 }
-.ivaap-number__incr-icon{
+.mui-number__incr-icon{
   @include Icons.icon("plus");
 
 }
-.ivaap-number__decr-icon{
+.mui-number__decr-icon{
   @include Icons.icon("minus");
 }

@@ -24,10 +24,10 @@ mui.Dialog = function(){
     var Dialog = function(options){
         if(options==null)options = {};
         mui.Element.call(this,options);
-        this.addClass(['ivaap-dialog']);
-        this._contentContainer = this.create('ivaap-dialog__content');
+        this.addClass(['mui-dialog']);
+        this._contentContainer = this.create('mui-dialog__content');
         if(options['modal']){
-            this._background = this.create("ivaap-dialog__background");
+            this._background = this.create("mui-dialog__background");
             this.add(this._background);
             this._background.add(this._contentContainer);
             this._backgroundClickHandler =function(evt){
@@ -37,7 +37,7 @@ mui.Dialog = function(){
                 }
             }.bind(this);
             this._background.addEventListener('click',this._backgroundClickHandler);
-            this.addClass('ivaap-dialog--modal');
+            this.addClass('mui-dialog--modal');
 
         }else{
             this.add(this._contentContainer);

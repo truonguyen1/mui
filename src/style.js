@@ -34,7 +34,7 @@ mui.Style = function(){
      * @return {mui.Style}
      */
     Style.prototype.flexRow = function(){
-        this._classes.push('ivaap-flex--ver');
+        this._classes.push('mui-flex--ver');
         return this;
     };
     /**
@@ -42,7 +42,7 @@ mui.Style = function(){
      * @return {mui.Style}
      */
     Style.prototype.flexColumn = function(){
-        this._classes.push('ivaap-flex--hor');
+        this._classes.push('mui-flex--hor');
         return this;
     };
     /**
@@ -50,7 +50,7 @@ mui.Style = function(){
      * @return {mui.Style}
      */
     Style.prototype.flexChildAuto = function(){
-        this._classes.push('ivaap-flex-item--scaled');
+        this._classes.push('mui-flex-item--scaled');
         return this;
     };
 
@@ -60,7 +60,7 @@ mui.Style = function(){
      * @return {mui.Style}
      */
     Style.prototype.flexContainerCrossAxisAlign = function(align){
-        this._classes.push('ivaap-flex-align__container-cross-axis--'+align);
+        this._classes.push('mui-flex-align__container-cross-axis--'+align);
         return this;
     };
     /**
@@ -69,7 +69,7 @@ mui.Style = function(){
      * @return {mui.Style}
      */
     Style.prototype.flexContainerMainAxisAlign = function(align){
-        this._classes.push('ivaap-flex-align__container-main-axis--'+align);
+        this._classes.push('mui-flex-align__container-main-axis--'+align);
         return this;
     };
 
@@ -292,7 +292,7 @@ mui.Theme = function(){
         if(where==null){
             where ='all';
         }
-        this._classes.push('ivaap-padding__'+where+'--'+type);
+        this._classes.push('mui-padding__'+where+'--'+type);
         return this;
     };
     /**
@@ -305,7 +305,7 @@ mui.Theme = function(){
         if(where==null){
             where ='all';
         }
-        this._classes.push('ivaap-margin__'+where+'--'+type);
+        this._classes.push('mui-margin__'+where+'--'+type);
         return this;
     };
     /**
@@ -330,7 +330,7 @@ mui.Theme = function(){
             default:
                 where = 'all';
         }
-        this._classes.push('ivaap-corner__'+where+'--'+type);
+        this._classes.push('mui-corner__'+where+'--'+type);
     };
     /**
      * Button style
@@ -338,7 +338,7 @@ mui.Theme = function(){
      * @return {mui.Style}
      */
     Theme.prototype.buttonOf = function(type){
-        this._classes.push('ivaap-button-'+type);
+        this._classes.push('mui-button-'+type);
         return this;
     };
     /**
@@ -347,7 +347,7 @@ mui.Theme = function(){
      * @return {mui.Style}
      */
     Theme.prototype.containerOf = function(theme){
-        this._classes.push('ivaap-container-of-'+theme);
+        this._classes.push('mui-container-of-'+theme);
         return this;
     };
     /**
@@ -356,7 +356,7 @@ mui.Theme = function(){
      * @return {mui.Style}
      */
     Theme.prototype.backgroundOf = function(theme){
-        this._classes.push('ivaap-bg-of-'+theme);
+        this._classes.push('mui-bg-of-'+theme);
         return this;
     };
     /**
@@ -365,7 +365,7 @@ mui.Theme = function(){
      * @return {mui.Style}
      */
     Theme.prototype.textOf = function(theme){
-        this._classes.push('ivaap-txt-of-'+theme);
+        this._classes.push('mui-txt-of-'+theme);
         return this;
     };
     /**
@@ -374,7 +374,7 @@ mui.Theme = function(){
      * @return {mui.Style}
      */
     Theme.prototype.borderOf = function(theme){
-        this._classes.push('ivaap-border-of-'+theme);
+        this._classes.push('mui-border-of-'+theme);
         return this;
     };
 
@@ -384,7 +384,7 @@ mui.Theme = function(){
      * @return {mui.Style}
      */
     Theme.prototype.boldContainerOf = function(theme){
-        this._classes.push('ivaap-container-bold-of-'+theme);
+        this._classes.push('mui-container-bold-of-'+theme);
         return this;
     };
 
@@ -394,7 +394,7 @@ mui.Theme = function(){
      * @return {mui.Style}
      */
     Theme.prototype.textOn = function(theme){
-        this._classes.push('ivaap-text-on-'+theme);
+        this._classes.push('mui-text-on-'+theme);
         return this;
     };
     /**
@@ -403,7 +403,7 @@ mui.Theme = function(){
      * @return {mui.Style}
      */
     Theme.prototype.borderOn = function(theme){
-        this._classes.push('ivaap-border-on-'+theme);
+        this._classes.push('mui-border-on-'+theme);
         return this;
     };
     /**
@@ -421,7 +421,7 @@ mui.Theme = function(){
      * @return {mui.Style}
      */
     Theme.prototype.elevateAt = function(level){
-        this._classes.push('ivaap-elevate--z'+level);
+        this._classes.push('mui-elevate--z'+level);
         return this;
     };
     return Theme;

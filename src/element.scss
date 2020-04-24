@@ -4,64 +4,64 @@
  *  INT PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
 @use "core" as Core;
-.ivaap-el{
+.mui-el{
 
 }
-.ivaap-el--hidden{
+.mui-el--hidden{
   display:  none;
 }
-.ivaap-box{
+.mui-box{
   position:relative;
 }
 
-.ivaap-el--fit-to-parent{
+.mui-el--fit-to-parent{
   @include  Core.absolute;
 }
-.ivaap-flex-child--expanded{
+.mui-flex-child--expanded{
   @include Core.flex-item--scaled;
 }
-.ivaap-flex__cross-axis-self--center{
+.mui-flex__cross-axis-self--center{
   @include Core.flex-align__child-cross-axis;
 }
-.ivaap-flex__cross-axis-self--start{
+.mui-flex__cross-axis-self--start{
   @include Core.flex-align__child-cross-axis(flex-start);
 }
-.ivaap-flex__cross-axis-self--end{
+.mui-flex__cross-axis-self--end{
   @include Core.flex-align__child-cross-axis(flex-end);
 }
-.ivaap-center{
+.mui-center{
   @include Core.flex--hor;
   @include Core.flex-align__container-cross-axis;
   @include Core.flex-align__container-main-axis;
 }
 
-.ivaap-box__cross-axis--center{
+.mui-box__cross-axis--center{
   @include  Core.flex-align__container-cross-axis;
 }
-.ivaap-box__cross-axis--start{
+.mui-box__cross-axis--start{
   @include  Core.flex-align__container-cross-axis(flex-start);
 
 }
-.ivaap-box__cross-axis--end{
+.mui-box__cross-axis--end{
   @include  Core.flex-align__container-cross-axis(flex-end);
 
 }
-.ivaap-box__main-axis--center{
+.mui-box__main-axis--center{
   @include  Core.flex-align__container-main-axis;
 }
-.ivaap-box__main-axis--start{
+.mui-box__main-axis--start{
   @include  Core.flex-align__container-main-axis(flex-start);
 }
-.ivaap-box__main-axis--end{
+.mui-box__main-axis--end{
   @include  Core.flex-align__container-main-axis(flex-end);
 }
-.ivaap-vbox{
+.mui-vbox{
   @include Core.flex--ver;
 }
-.ivaap-hbox{
+.mui-hbox{
   @include Core.flex--hor;
 }
 
-.ivaap-fitted-box{
+.mui-fitted-box{
   @include  Core.absolute;
 }

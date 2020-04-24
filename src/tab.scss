@@ -2,34 +2,34 @@
 @use "colors" as Colors;
 @use "button" as Button;
 
-.ivaap-tab{
+.mui-tab{
   @include Core.flex--ver;
 }
-.ivaap-tab__header{
+.mui-tab__header{
   @include Core.flex--hor;
 }
-.ivaap-tab__items-container{
+.mui-tab__items-container{
   @include Core.flex-item--scaled;
   @include Core.flex--hor;
   padding:0px 8px;
 }
-.ivaap-tab__left-header-container{
+.mui-tab__left-header-container{
   @include Core.flex--hor;
   @include Core.flex-align__container-cross-axis;
 }
-.ivaap-tab__right-header-container{
+.mui-tab__right-header-container{
   @include Core.flex--hor;
   @include Core.flex-align__container-cross-axis;
 }
 
-.ivaap-tab__header-item{
+.mui-tab__header-item{
   position: relative;
-  @include Button.ivaap-button;
+  @include Button.mui-button;
   @include Button.button--square;
   padding:16px 8px;
 }
 
-.ivaap-tab__header-item--active{
+.mui-tab__header-item--active{
   &:before {
     content:"";
     bottom:0px;
@@ -42,11 +42,11 @@
   @include Colors.text("accent");
 
 }
-.ivaap-tab__items-container--stretch > .ivaap-tab__header-item{
+.mui-tab__items-container--stretch > .mui-tab__header-item{
   @include Core.flex-item--scaled;
 
 }
-.ivaap-tab__body{
+.mui-tab__body{
   @include Core.flex-item--scaled;
 
 }

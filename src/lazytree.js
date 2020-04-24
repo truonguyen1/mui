@@ -58,7 +58,7 @@ mui.LazyTree = function(){
      */
     var LazyTree =function(options){
         mui.Element.call(this,options);
-        this.addClass('ivaap-lazy-tree');
+        this.addClass('mui-lazy-tree');
         //Collection adapter for lazy list
         this._listData = new ListData({
             'data':options['data']
@@ -142,14 +142,14 @@ mui.LazyTree = function(){
         this._onItemSettingClick = options['onItemSettingClick'];
         this._itemSettings = options['itemSettings'];
         this._onExpandIconClick = options['onExpandIconClick'];
-        this._expandIcon = options['expandIcon'] || 'ivaap-lazy-tree__item-expand-icon--expanded';
-        this._collapseIcon = options['collapseIcon'] || 'ivaap-lazy-tree__item-expand-icon--collapsed';
+        this._expandIcon = options['expandIcon'] || 'mui-lazy-tree__item-expand-icon--expanded';
+        this._collapseIcon = options['collapseIcon'] || 'mui-lazy-tree__item-expand-icon--collapsed';
         this._showExpandIcon = options['showExpandIcon'];
 
-        this._parentIcon = options['parentIcon'] || 'ivaap-lazy-tree__item-parent-icon';
-        this._childIcon = options['childIcon'] || 'ivaap-lazy-tree__item-child-icon';
+        this._parentIcon = options['parentIcon'] || 'mui-lazy-tree__item-parent-icon';
+        this._childIcon = options['childIcon'] || 'mui-lazy-tree__item-child-icon';
 
-        this.addClass('ivaap-lazy-tree__lazy-list');
+        this.addClass('mui-lazy-tree__lazy-list');
         this.getElement().addEventListener('click',this._handleClick.bind(this));
         this._data = options['data'];
         this.update();
@@ -179,7 +179,7 @@ mui.LazyTree = function(){
         var found=null;
         var args = null;
         if(this._onExpandIconClick) {
-            found = this.closest(target, 'ivaap-lazy-tree__item-expand-icon');
+            found = this.closest(target, 'mui-lazy-tree__item-expand-icon');
             if (found) {
                 args = new mui.Event(this,this._idToItemMappings.get( found.__id),evt);
                 this._onExpandIconClick(args);
@@ -191,7 +191,7 @@ mui.LazyTree = function(){
         }
         if(this._onItemSettingClick){
 
-            found = this.closest(target, 'ivaap-lazy-tree__setting-icon');
+            found = this.closest(target, 'mui-lazy-tree__setting-icon');
             if (found) {
                 if(this._menu==null) {
                     this._menu = new mui.Menu({
@@ -210,7 +210,7 @@ mui.LazyTree = function(){
         }
 
         if(this._onItemClick) {
-            found = this.closest(target, 'ivaap-lazy-tree__item');
+            found = this.closest(target, 'mui-lazy-tree__item');
             if (found) {
                 args = new mui.Event(this,this._idToItemMappings.get( found.__id),evt);
                 this._onItemClick(args);
@@ -247,26 +247,26 @@ mui.LazyTree = function(){
     LazyTreeList.prototype.getChildTemplate = function(dataNode,it){
         if (this._childItemTemplate == null) {
             var item = this.create({
-                'className': 'ivaap-lazy-tree__item'
+                'className': 'mui-lazy-tree__item'
             });
 
             if(this._iconVisible) {
                 var icon = this.create({
-                    'className': 'ivaap-lazy-tree__item-icon'
+                    'className': 'mui-lazy-tree__item-icon'
                 });
                 icon.style.padding = ICON_PADDING+'px';
                 item.appendChild(icon);
             }
 
             var text = this.create({
-                'className': 'ivaap-lazy-tree__item-display ivaap-lay-tree__item-display--clickable'
+                'className': 'mui-lazy-tree__item-display mui-lay-tree__item-display--clickable'
             });
             if (this._descVisible) {
                 var txtPrimary = this.create({
-                    'className': "ivaap-lazy-tree__label"
+                    'className': "mui-lazy-tree__label"
                 });
                 var txtSecond = this.create({
-                    'className': "ivaap-lazy-tree__desc"
+                    'className': "mui-lazy-tree__desc"
                 });
                 text.appendChild(txtPrimary);
                 text.appendChild(txtSecond);
@@ -287,11 +287,11 @@ mui.LazyTree = function(){
             this._parentOffset = 0;
             var expandIcon,icon,title,desc;
             var item = this.create({
-                'className': 'ivaap-lazy-tree__item'
+                'className': 'mui-lazy-tree__item'
             });
             if(this._showExpandIcon!==false) {
                 expandIcon = this.create({
-                    'className': 'ivaap-lazy-tree__item-expand-icon'
+                    'className': 'mui-lazy-tree__item-expand-icon'
                 });
                 expandIcon.style.padding = (EXPAND_ICON_PADDING)+'px';
                 item.appendChild(expandIcon);
@@ -299,7 +299,7 @@ mui.LazyTree = function(){
             }
             if(this._iconVisible) {
                 icon = this.create({
-                    'className': 'ivaap-lazy-tree__item-icon'
+                    'className': 'mui-lazy-tree__item-icon'
                 });
                 var padLeft = this._showExpandIcon!==false?ICON_PADDING:ICON_PADDING*2;
                 icon.style.paddingLeft = padLeft+'px';
@@ -309,7 +309,7 @@ mui.LazyTree = function(){
             }
 
             var text = this.create({
-                'className': 'ivaap-lazy-tree__item-display ivaap-lay-tree__item-display--clickable'
+                'className': 'mui-lazy-tree__item-display mui-lay-tree__item-display--clickable'
             });
             if (this._descVisible) {
                 title = this.create({
@@ -362,7 +362,7 @@ mui.LazyTree = function(){
         //     newItem.classList.add(className);
         // }
         if(listData.isSelected(dataNode)){
-            newItem.classList.add('ivaap-lazy-tree__item--selected');
+            newItem.classList.add('mui-lazy-tree__item--selected');
         }
 
         var descElement = newItemObj['desc'];
@@ -373,11 +373,11 @@ mui.LazyTree = function(){
         if(expandElement) {
             expandElement.__id = nodeId;
             if (listData.isError(dataNode)) {
-                expandElement.classList.add('ivaap-lazy-tree__item-expand-icon--error');
+                expandElement.classList.add('mui-lazy-tree__item-expand-icon--error');
 
             } else if (listData.isLoading(dataNode)) {
                 // newItem.childNodes[0].textContent = 'replay'
-                expandElement.classList.add('ivaap-lazy-tree__item-expand-icon--spin');
+                expandElement.classList.add('mui-lazy-tree__item-expand-icon--spin');
             } else if (isParent) {
                 expandElement.classList.add(listData.isExpanded(nodeId) ? this._expandIcon : this._collapseIcon);
             }
@@ -385,7 +385,7 @@ mui.LazyTree = function(){
 
         if(iconElement) {
             var iconClass = listData.getIcon(dataNode);
-            var clssNm ='ivaap-lazy-tree__item-icon '+ (iconClass == null ?( isParent?this._parentIcon:this._childIcon ): iconClass);
+            var clssNm ='mui-lazy-tree__item-icon '+ (iconClass == null ?( isParent?this._parentIcon:this._childIcon ): iconClass);
             iconElement.className = clssNm;
         }
 
@@ -403,7 +403,7 @@ mui.LazyTree = function(){
             }
         }
         if(this._hasSettings===true || (typeof this._hasSettings=='function' && this._hasSettings(dataNode))){
-            var settingIcon = this.create({'type':'button','className':'ivaap-lazy-tree__setting-icon'});
+            var settingIcon = this.create({'type':'button','className':'mui-lazy-tree__setting-icon'});
             settingIcon.__id = nodeId;
             newItem.appendChild(settingIcon);
         }

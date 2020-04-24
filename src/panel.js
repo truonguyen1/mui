@@ -37,21 +37,21 @@
  */
 mui.Panel = function(){
     var btnTypeToClass = {
-        'alert':'ivaap-button-alert',
-        'primary':'ivaap-button-primary',
-        'accent':'ivaap-button-accent',
-        'link':'ivaap-button-link'
+        'alert':'mui-button-alert',
+        'primary':'mui-button-primary',
+        'accent':'mui-button-accent',
+        'link':'mui-button-link'
     };
     var Panel = function(options){
         mui.Element.call(this,options);
-        this.addClass('ivaap-panel');
+        this.addClass('mui-panel');
         this._headerActionClickHandler = options['onHeaderActionClick'];
         this._footerActionClickHandler = options['onFooterActionClick'];
 
-        this._header = this.create('ivaap-panel__header');
-        this._leftContainer = this.create('ivaap-panel__left-header');
+        this._header = this.create('mui-panel__header');
+        this._leftContainer = this.create('mui-panel__left-header');
         this._titleBtn = new mui.Button({
-            'className':'ivaap-button-link',
+            'className':'mui-button-link',
             'label':options['title'],
             'description':options['titleDescription'],
             'icon':options['headerIcon'],
@@ -61,20 +61,20 @@ mui.Panel = function(){
             options['headerStyle'].apply(this._header);
         }
 
-        this._rightActionContainer = this.create('ivaap-panel__right-actions');
+        this._rightActionContainer = this.create('mui-panel__right-actions');
         this._header.add(this._leftContainer,this._rightActionContainer);
 
 
         this._body = new mui.Content({
-            'className':'ivaap-panel__body'
+            'className':'mui-panel__body'
         });
         this.add(this._header);
         this._body.attachTo(this.getElement());
 
         if(options['onClose']){
             this._closeBtn = new  mui.Button({
-                'icon':'ivaap-panel__close-icon',
-                'className':'ivaap-panel__header-close-btn  ivaap-button-link',
+                'icon':'mui-panel__close-icon',
+                'className':'mui-panel__header-close-btn  mui-button-link',
                 'onClick':options['onClose'].bind(null,this)
             });
             this._closeBtn.attachTo(this._header);
@@ -83,7 +83,7 @@ mui.Panel = function(){
         this._titleBtn.attachTo(this._leftContainer);
 
         if(options['footerVisible']){
-            this._footer = this.create('ivaap-panel__footer');
+            this._footer = this.create('mui-panel__footer');
             this.add(this._footer);
         }
         if(options['title']){
@@ -182,7 +182,7 @@ mui.Panel = function(){
             var btn = new mui.Button({
                 'label':actions.getName(act),
                 'icon':actions.getIcon(act),
-                'className':'ivaap-panel__header-btn  ivaap-button-link',
+                'className':'mui-panel__header-btn  mui-button-link',
                 'onClick':this._handleHeaderActionClick.bind(this,actions.getId(act))
             });
             btn.attachTo(this._rightActionContainer);
@@ -233,7 +233,7 @@ mui.Panel = function(){
             var btn = new mui.Button({
                 'label':actions.getName(act),
                 'icon':actions.getIcon(act),
-                'className':'ivaap-panel__footer-btn  '+classN,
+                'className':'mui-panel__footer-btn  '+classN,
                 'onClick':this._handleFooterClick.bind(this,actions.getId(act))
             });
             btn.attachTo(this._footer);

@@ -29,7 +29,7 @@ mui.AbstractDropdown = function(){
             options['type']='button';
         }
         mui.Element.call(this,options);
-        this.addClass('ivaap-dropdown');
+        this.addClass('mui-dropdown');
         this._onItemClick = options['onItemClick'];
         this.setSelected(options['selected']);
         this._clickHandler = function(evt){
@@ -132,9 +132,9 @@ mui.AbstractDropdown = function(){
     AbstractDropdown.prototype.updateDisplay = function(){
         this.clear();
         var elm = this.createDisplay();
-        elm.classList.add('ivaap-dropdown__display');
+        elm.classList.add('mui-dropdown__display');
         this.add(elm);
-        this._caret = this.create('ivaap-dropdown__caret-icon');
+        this._caret = this.create('mui-dropdown__caret-icon');
         this.add(this._caret);
         return this;
     };
@@ -193,7 +193,7 @@ mui.Dropdown = function(){
      * @inheritDoc
      */
     Dropdown.prototype.createDisplay = function(){
-        var label = this.create('ivaap-dropdown__label');
+        var label = this.create('mui-dropdown__label');
         if(this.getSelected()==null){
             label.textContent = ('select...');
             return label;
@@ -255,7 +255,7 @@ mui.ImageDropdown = function(){
      * @inheritDoc
      */
     ImageDropdown.prototype.createDisplay = function(){
-        var img = this.create('ivaap-dropdown__image');
+        var img = this.create('mui-dropdown__image');
         if(this.getSelected()){
             var url =this.getItems().getImage(this.getSelected());
             img.style.backgroundImage ='url("'+url+'")';

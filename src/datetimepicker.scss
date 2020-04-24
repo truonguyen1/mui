@@ -10,13 +10,13 @@
 @use "colors" as Colors;
 
 @import "~flatpickr/dist/flatpickr.min";
-.ivaap-datetime-picker{
+.mui-datetime-picker{
   @include  Colors.border-on-background("surface");
   @include Colors.text-on-background("surface");
 
 }
-.ivaap-datetime-picker__input{
-  @include Text.ivaap-text__input;
+.mui-datetime-picker__input{
+  @include Text.mui-text__input;
 }
 
 .flatpickr-months{

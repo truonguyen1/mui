@@ -15,7 +15,7 @@
 mui.ActionsBar = function(){
     var ActionsBar = function(options){
         mui.Element.call(this,options);
-        this.addClass('ivaap-actions-bar');
+        this.addClass('mui-actions-bar');
     };
     mui.inherits(ActionsBar,mui.Element);
 

@@ -33,11 +33,11 @@ mui.ColorPicker = function(){
         }
         options['type'] = 'button';
         mui.Element.call(this,options);
-        this.addClass('ivaap-colorpicker');
+        this.addClass('mui-colorpicker');
         this._onChanged = options['onChanged'];
         this._onColorSelected = options['onColorSelected'];
-        this._transImg = this.create("ivaap-colorpicker__trans-img");
-        this._bgContainer = this.create("ivaap-colorpicker__bg");
+        this._transImg = this.create("mui-colorpicker__trans-img");
+        this._bgContainer = this.create("mui-colorpicker__bg");
         this.add(this._transImg,this._bgContainer);
         this._onClick = options['onClick'];
         this._clickHandler = function(evt){

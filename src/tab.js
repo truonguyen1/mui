@@ -36,14 +36,14 @@ mui.Tab = function(){
         this._cachedContents = new Map();
         this._cachedHeaders = new Map();
 
-        this.addClass('ivaap-tab');
-        this._headerE = this.create('ivaap-tab__header '+(options['headerClassName']?options['headerClassName']:''));
-        this._leftHeaderE = this.create('ivaap-tab__left-header-container');
-        this._rightHeaderE = this.create('ivaap-tab__right-header-container');
-        this._itemsContainer = this.create('ivaap-tab__items-container '+(options['stretchHeader']?'ivaap-tab__items-container--stretch':''));
+        this.addClass('mui-tab');
+        this._headerE = this.create('mui-tab__header '+(options['headerClassName']?options['headerClassName']:''));
+        this._leftHeaderE = this.create('mui-tab__left-header-container');
+        this._rightHeaderE = this.create('mui-tab__right-header-container');
+        this._itemsContainer = this.create('mui-tab__items-container '+(options['stretchHeader']?'mui-tab__items-container--stretch':''));
         this._headerE.add(this._itemsContainer);
         this._bodyE = new mui.Content({
-            'className':'ivaap-tab__body'
+            'className':'mui-tab__body'
         });
         this.add(this._headerE);
         this._bodyE.attachTo(this.getElement());
@@ -105,11 +105,11 @@ mui.Tab = function(){
         this._hideError();
         var activeE =this._cachedHeaders.get(this._active);
         if(activeE){
-            activeE.removeClass('ivaap-tab__header-item--active');
+            activeE.removeClass('mui-tab__header-item--active');
         }
         activeE = this._cachedHeaders.get(id);
         if(activeE){
-            activeE.addClass('ivaap-tab__header-item--active');
+            activeE.addClass('mui-tab__header-item--active');
         }
         activeE = this._cachedContents.get(this._active);
         if(activeE){
@@ -193,7 +193,7 @@ mui.Tab = function(){
                 'icon':data.getIcon(item),
                 'label':data.getName(item),
                 'onClick':this._handleHeaderItemClick.bind(this,id),
-                'className':'ivaap-tab__header-item'
+                'className':'mui-tab__header-item'
             });
             btn.attachTo(this._itemsContainer);
             cachedHeaders.set(id,btn);
@@ -201,7 +201,7 @@ mui.Tab = function(){
         this._cachedHeaders = cachedHeaders;
         var headerE = cachedHeaders.get(this._active);
         if(headerE){
-            headerE.addClass('ivaap-tab__header-item--active');
+            headerE.addClass('mui-tab__header-item--active');
         }
         if(this._factory==null)return this;
         var view= this._factory(this._active);

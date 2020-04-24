@@ -8,51 +8,51 @@
 @use "colors" as Colors;
 
 
-.ivaap-lazy-grid-list{
-  //.ivaap-lazy-list__top-spacer,
-  //.ivaap-lazy-list__bottom-spacer{
+.mui-lazy-grid-list{
+  //.mui-lazy-list__top-spacer,
+  //.mui-lazy-list__bottom-spacer{
   //  display: table-row;
   //}
 
 }
 
-.ivaap-datagrid__content{
+.mui-datagrid__content{
   @include Core.absolute;
   @include Core.flex--ver;
   overflow: hidden;
 }
 
-.ivaap-lazy-grid-list{
+.mui-lazy-grid-list{
   @include Core.flex-item--scaled;
 }
-.ivaap-lazy-grid-list__table{
+.mui-lazy-grid-list__table{
   width:100%;
   table-layout: fixed;
   border-spacing: 0;
   border-collapse: collapse;
 
 }
-.ivaap-lazy-grid-header{
+.mui-lazy-grid-header{
   width:100%;
   table-layout: fixed;
   border-spacing: 0;
   border-collapse: collapse;
   @include Colors.container-bold("surface");
 }
-.ivaap-lazy-grid-header--shadow{
+.mui-lazy-grid-header--shadow{
   box-shadow: 0px 1px 4px 1px #d3d3d3b5;
 }
 
-.ivaap-lazy-grid-list__cell-name{
+.mui-lazy-grid-list__cell-name{
   white-space: nowrap;
 }
-.ivaap-lazy-grid-list__data-cell{
+.mui-lazy-grid-list__data-cell{
   &:not(:last-of-type) {
     border-right: 1px solid lightgrey;
     @include Colors.border-on-background("surface");
   }
 }
-.ivaap-lazy-grid-header__data-cell{
+.mui-lazy-grid-header__data-cell{
 
   &:not(:last-of-type) {
     border-right: 1px solid lightgrey;
@@ -60,54 +60,54 @@
   }
 
 }
-.ivaap-lazy-grid-list__left-corner-cell,
-.ivaap-lazy-grid-header__right-corner-cell,
-.ivaap-lazy-grid-header__left-corner-cell{
+.mui-lazy-grid-list__left-corner-cell,
+.mui-lazy-grid-header__right-corner-cell,
+.mui-lazy-grid-header__left-corner-cell{
   padding:0px;
   display:table-cell;
   vertical-align: middle;
   text-align: center;
 }
-.ivaap-lazy-grid-list__left-corner-cell,
-.ivaap-lazy-grid-header__left-corner-cell{
+.mui-lazy-grid-list__left-corner-cell,
+.mui-lazy-grid-header__left-corner-cell{
   border-right:1px solid lightgrey;
   @include Colors.border-on-background("surface");
 }
 
 
 
-.ivaap-lazy-grid-list__data-cell{
+.mui-lazy-grid-list__data-cell{
   padding:0px 8px;
 }
-.ivaap-lazy-grid-header__data-cell{
+.mui-lazy-grid-header__data-cell{
   padding:8px;
 }
-.ivaap-lazy-grid-list__data-cell{
+.mui-lazy-grid-list__data-cell{
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
-.ivaap-lazy-grid-list__row,
-.ivaap-lazy-grid-header__row{
+.mui-lazy-grid-list__row,
+.mui-lazy-grid-header__row{
   border-bottom:1px solid lightgrey;
   cursor: default;
   @include Colors.border-on-background("surface");
 }
-.ivaap-lazy-grid-list__row{
+.mui-lazy-grid-list__row{
   &:hover,
   &:focus {
-    &:not(.ivaap-lazy-grid-list__row--selected) {
+    &:not(.mui-lazy-grid-list__row--selected) {
       @include Colors.container-stealth("accent");
     }
   }
 }
-.ivaap-lazy-grid-list__row--odd{
+.mui-lazy-grid-list__row--odd{
   @include Colors.container-bold-less("surface");
 }
 
-.ivaap-lay-grid-list__checkbox-icon,
-.ivaap-lazy-grid-header__checkbox-icon{
+.mui-lay-grid-list__checkbox-icon,
+.mui-lazy-grid-header__checkbox-icon{
   @include Icons.icon("square");
   background:none;
   border:none;
@@ -122,22 +122,22 @@
 
 
 }
-.ivaap-lazy-grid-header__checkbox-icon--checked,
-.ivaap-lay-grid-list__checkbox-icon--checked{
+.mui-lazy-grid-header__checkbox-icon--checked,
+.mui-lay-grid-list__checkbox-icon--checked{
   @include Icons.icon("square-checked");
   @include Colors.text("accent");
 }
 
-.ivaap-lazy-grid-list__cell-icon{
+.mui-lazy-grid-list__cell-icon{
   margin-right:8px;
 }
-.ivaap-lazy-grid-list__row--selected{
+.mui-lazy-grid-list__row--selected{
   background-color:Colors.activeTheme('accent');
 }
-.ivaap-lazy-grid-header__container{
+.mui-lazy-grid-header__container{
   position:relative;
 }
-.ivaap-lazy-grid-header__sort-btn{
+.mui-lazy-grid-header__sort-btn{
   background:none;
   border:none;
   outline:none;
@@ -153,9 +153,9 @@
   right:0px;
 
 }
-.ivaap-lazy-grid-header__sort-btn--asc{
+.mui-lazy-grid-header__sort-btn--asc{
   @include Icons.icon("collapsed");
 }
-.ivaap-lazy-grid-header__sort-btn--dsc{
+.mui-lazy-grid-header__sort-btn--dsc{
   @include Icons.icon("expanded");
 }

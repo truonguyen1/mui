@@ -9,7 +9,7 @@
 @use "icons" as Icons;
 @use "typography" as Typos;
 
-@mixin ivaap-button(){
+@mixin mui-button(){
   padding: 8px 16px;
   border-radius: 3px;
   //margin-left: 5px;
@@ -36,7 +36,7 @@
 }
 
 @mixin button-link{
-  @include ivaap-button;
+  @include mui-button;
   @include Core.hover-focus-background("accent");
   padding:8px;
   color:inherit;
@@ -44,7 +44,7 @@
 }
 @mixin button-accent{
   @include button--shadow;
-  @include ivaap-button;
+  @include mui-button;
   @include Colors.container("accent");
   @include Core.hover-focus-background("accent");
 
@@ -58,14 +58,14 @@
   -webkit-box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
   box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
 }
-.ivaap-button{
-  @include ivaap-button;
+.mui-button{
+  @include mui-button;
 }
-.ivaap-button__left-container{
+.mui-button__left-container{
   @include Core.flex--ver;
   @include Core.flex-align__container-cross-axis(flex-start);
 }
-.ivaap-button__desc{
+.mui-button__desc{
   //@include flex-item--scaled;
   font-size: 9px;
   opacity: 0.6;
@@ -73,61 +73,61 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.ivaap-button__icon{
+.mui-button__icon{
   margin-right:8px;
   &:last-child{
     margin-right:0px;
   }
 }
-.ivaap-button__caret{
+.mui-button__caret{
   margin-left:8px;
 }
-.ivaap-button--sm{
-  @extend .ivaap-button;
+.mui-button--sm{
+  @extend .mui-button;
   padding:5px;
 }
-.ivaap-button-icon{
-  @extend .ivaap-button;
+.mui-button-icon{
+  @extend .mui-button;
   padding:12px;
 }
 
 
-.ivaap-button-link{
-  @extend .ivaap-button;
+.mui-button-link{
+  @extend .mui-button;
   @include button-link;
 }
-.ivaap-button-primary{
-  @extend .ivaap-button;
+.mui-button-primary{
+  @extend .mui-button;
   @include button--shadow;
   @include Colors.container("primary");
   //@include Core.hover-focus-background("primary");
 
 }
-.ivaap-button-accent{
+.mui-button-accent{
   @include button--shadow;
-  @extend .ivaap-button;
+  @extend .mui-button;
   @include Colors.container("accent");
   //@include Core.hover-focus-background("accent");
 }
-.ivaap-button-alert{
+.mui-button-alert{
   @include button--shadow;
-  @extend .ivaap-button;
+  @extend .mui-button;
   @include Colors.container("alert");
   //@include Core.hover-focus-background("alert");
 }
 
-.ivaap-button--square{
+.mui-button--square{
   @include button--square;
 }
-.ivaap-button--disabled{
-  @extend .ivaap-button;
+.mui-button--disabled{
+  @extend .mui-button;
 
 }
 
-.ivaap-button__menu{
+.mui-button__menu{
   position:fixed;
   z-index: 9999;
 }
-.ivaap-button__caret-icon{
+.mui-button__caret-icon{
   @include Icons.icon("caret-down");
 }

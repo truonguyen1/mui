@@ -55,7 +55,7 @@ mui.LazyList = function(){
         this._itemClickHandler = function(evt){
             var elm,args;
             if( options['onItemSettingClick']) {
-                elm = this.closest(evt.target, 'ivaap-lazy-list__setting-icon');
+                elm = this.closest(evt.target, 'mui-lazy-list__setting-icon');
                 if (elm) {
                     if(this._menu==null) {
                         this._menu = new mui.Menu({
@@ -71,7 +71,7 @@ mui.LazyList = function(){
                 }
             }
             if(options['onActionClick']){
-                elm = this.closest(evt.target,'ivaap-lazy-list__action');
+                elm = this.closest(evt.target,'mui-lazy-list__action');
                 if(elm) {
                     args = new mui.Event(this,{'actionId':elm.__actId,'itemId':this._idToNodeMappings.get(elm.__nodeId)},evt);
                     options['onActionClick'](args);
@@ -81,7 +81,7 @@ mui.LazyList = function(){
                 }
             }
             if(options['onItemClick']){
-                elm = this.closest(evt.target,'ivaap-lazy-list__item');
+                elm = this.closest(evt.target,'mui-lazy-list__item');
                 if(elm==null)return;
                 args = new mui.Event(this,this._idToNodeMappings.get(elm.__id),evt);
                 options['onItemClick'](args);
@@ -90,7 +90,7 @@ mui.LazyList = function(){
         }.bind(this);
         this._itemDblClickHandler = function(evt) {
             if(options['onDoubleClick']){
-                var elm = this.closest(evt.target,'ivaap-lazy-list__item');
+                var elm = this.closest(evt.target,'mui-lazy-list__item');
                 if(elm==null)return;
                 evt = new mui.Event(this,this._idToNodeMappings.get(elm.__id),evt);
                 options['onDoubleClick'](elm.__id);
@@ -148,7 +148,7 @@ mui.LazyList = function(){
     LazyList.prototype.setSelected=function(id){
         var prev = this._idToRenderedElement.get(this._selected);
         if(prev){
-            prev.classList.remove('ivaap-lazy-list__item--selected');
+            prev.classList.remove('mui-lazy-list__item--selected');
         }
         if(this._cachedSelectedRowActContainer){
             this._cachedSelectedRowActContainer.removeFromParent();
@@ -157,7 +157,7 @@ mui.LazyList = function(){
         this._selected =id;
         var elm = this._idToRenderedElement.get(id);
         if(elm){
-            elm.classList.add('ivaap-lazy-list__item--selected');
+            elm.classList.add('mui-lazy-list__item--selected');
         }
         if(this._selectedRowActions) {
             this._cachedSelectedRowActContainer =this.createRowAction(this._selectedRowActions,id);
@@ -197,19 +197,19 @@ mui.LazyList = function(){
             var act = it.next();
             iconClass =collection.getIcon(act);
             label = collection.getName(act);
-            var actE =  this.create({'type': 'button', 'className': 'ivaap-lazy-list__action'});
+            var actE =  this.create({'type': 'button', 'className': 'mui-lazy-list__action'});
             if(iconClass){
-                actE.add(this.create('ivaap-lazy-list__action-icon '+iconClass));
+                actE.add(this.create('mui-lazy-list__action-icon '+iconClass));
             }
             if(label){
-                actE.add(this.create({'className':'ivaap-lazy-list__action-label','text':label}));
+                actE.add(this.create({'className':'mui-lazy-list__action-label','text':label}));
             }
             actE.__actId = collection.getId(act);
             actE.__nodeId = nodeId;
             frag.add(actE);
 
         }
-        return this.create('ivaap-lazy-list__action-container').add(frag);
+        return this.create('mui-lazy-list__action-container').add(frag);
     };
     /**
      * @inheritDoc
@@ -220,20 +220,20 @@ mui.LazyList = function(){
         if(this._itemTemplate==null) {
             var item = this.create({
                 'type':'li',
-                'className':'ivaap-lazy-list__item'
+                'className':'mui-lazy-list__item'
             });
             if(this._iconVisible) {
                 icon = this.create({
-                    'className': 'ivaap-lazy-list__item-icon'
+                    'className': 'mui-lazy-list__item-icon'
                 });
                 if(this._iconType!=='avatar'){
                     icon.style.backgroundImage = 'url(' + this._altHolder + ')';
                 }
                 item.add(icon);
             }
-            var textContainer = this.create({'className':'ivaap-lazy-list__text-container'});
-            var txtPrimary = this.create({'className': "ivaap-lazy-list__item-title"});
-            var txtSecond = this.create({'className': "ivaap-lazy-list__item-desc"});
+            var textContainer = this.create({'className':'mui-lazy-list__text-container'});
+            var txtPrimary = this.create({'className': "mui-lazy-list__item-title"});
+            var txtSecond = this.create({'className': "mui-lazy-list__item-desc"});
             textContainer.add(txtPrimary);
             textContainer.add(txtSecond);
 
@@ -243,7 +243,7 @@ mui.LazyList = function(){
         var id = listData.getId(dataNode);
         var newItem = this._itemTemplate.cloneNode(true); //cloning is faster by 50%
         if(id ==this._selected){
-            newItem.classList.add('ivaap-lazy-list__item--selected');
+            newItem.classList.add('mui-lazy-list__item--selected');
         }
 
         var iconItem = this._iconVisible?newItem.childNodes[0]:null;
@@ -256,11 +256,11 @@ mui.LazyList = function(){
             if(this._iconType=='avatar') {
                 icon = listData.getIcon(dataNode);
                 if (icon != null) {
-                    iconItem.className = 'ivaap-lazy-list__item-icon '+icon;
+                    iconItem.className = 'mui-lazy-list__item-icon '+icon;
                 }
             }else{
                 var thumbnail = null;//TODO
-                iconItem.classList.add('ivaap-lazy-list__item-icon-thumbnail');
+                iconItem.classList.add('mui-lazy-list__item-icon-thumbnail');
                 if(thumbnail) {
                     iconItem.style.backgroundImage = 'url(' + thumbnail + ')';
                 }
@@ -291,7 +291,7 @@ mui.LazyList = function(){
         }
 
         if(this._hasSettings===true || typeof this._hasSettings=='function' && this._hasSettings(dataNode)){
-            var setting = this.create({'type':'button','className':'ivaap-lazy-list__setting-icon'});
+            var setting = this.create({'type':'button','className':'mui-lazy-list__setting-icon'});
             setting.__id  = id;
             newItem.add(setting);
         }

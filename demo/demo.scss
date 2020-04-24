@@ -7,22 +7,22 @@
 body{
     font-family:"Roboto"
 }
-.ivaap-app{
+.mui-app{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
 }
 
-.ivaap-app >.ivaap-el{
+.mui-app >.mui-el{
     margin:5px;
 }
-.ivaap-button-container{
+.mui-button-container{
     display: flex;
     flex-direction: row;
 
 }
-.ivaap-button-container >.ivaap-el{
+.mui-button-container >.mui-el{
     margin:5px;
 }
 
@@ -38,7 +38,7 @@ body{
     margin-top:30px !important;
     //font-weight:bold;
 }
-.demo-desc.ivaap-el {
+.demo-desc.mui-el {
     margin-top: 0px !important;
     font-size: 14px;
     color: grey;

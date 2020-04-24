@@ -6,38 +6,38 @@
 @use "core" as Core;
 @use "icons" as Icons;
 
-.ivaap-content{
+.mui-content{
   position: relative;
 }
-.ivaap-content--notification-visible{
+.mui-content--notification-visible{
   @include Core.flex--hor;
   @include Core.flex-align__container-cross-axis;
   @include Core.flex-align__container-main-axis;
 }
-.ivaap-notification{
-  //@include Core.ivaap-fn-abs-pos;;
+.mui-notification{
+  //@include Core.mui-fn-abs-pos;;
   //@include Core.flex--hor;
   //@include Core.flex-align__container-cross-axis;
   //@include Core.flex-align__container-main-axis;
   opacity: 0.5;
   font-weight: bold;
 }
-.ivaap-notification__icon{
+.mui-notification__icon{
   margin-right:8px;
 }
-.ivaap-notification__message{
+.mui-notification__message{
 
 }
-.ivaap-content__loading-icon{
+.mui-content__loading-icon{
   @include Icons.icon-anim--rotated;
   @include Icons.icon("spin");
 }
 
-.ivaap-content__error-icon{
+.mui-content__error-icon{
   @include Icons.icon("exclamation");
 }
 
-.ivaap-content__info-icon{
+.mui-content__info-icon{
   @include Icons.icon("info");
 }
 

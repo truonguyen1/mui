@@ -40,14 +40,14 @@ mui.AbstractCard = function(){
         this._onFooterSettingItemClick = options['onFooterSettingItemClick'];
 
         mui.Element.call(this,options);
-        this.addClass('ivaap-card');
+        this.addClass('mui-card');
 
-        this._primaryTitle = this.create('ivaap-card__primary-title');
-        this._secondTitle = this.create('ivaap-card__second-title');
-        this._headerActionsE = this.create('ivaap-card__header-actions');
-        this._header =this.create("ivaap-card__header").add(
-            options['headerIcon']?this.create('ivaap-card__header-icon '+options['headerIcon']):null,
-            this.create('ivaap-card__header-body').add(
+        this._primaryTitle = this.create('mui-card__primary-title');
+        this._secondTitle = this.create('mui-card__second-title');
+        this._headerActionsE = this.create('mui-card__header-actions');
+        this._header =this.create("mui-card__header").add(
+            options['headerIcon']?this.create('mui-card__header-icon '+options['headerIcon']):null,
+            this.create('mui-card__header-body').add(
                 this._primaryTitle,this._secondTitle
             ),
             this._headerActionsE
@@ -55,11 +55,11 @@ mui.AbstractCard = function(){
 
 
         if(options['bodyVisible']) {
-            this._body = this.create('ivaap-card__body');
+            this._body = this.create('mui-card__body');
             this._body.style.backgroundImage='url("alt_holder.svg")';
         }
         if(options['footerVisible']) {
-            this._footer = this.create('ivaap-card__footer');
+            this._footer = this.create('mui-card__footer');
         }
 
         this._footerSettingVisible = options['footerSettingsVisible'];
@@ -84,14 +84,14 @@ mui.AbstractCard = function(){
         this._clickHandler = function(evt){
             var found;
             if(options['onHeaderSettingItemClick']){
-                found = this.closest(evt.target,'ivaap-card__header-settings');
+                found = this.closest(evt.target,'mui-card__header-settings');
                 if(found){
                     this.openHeaderSettings();
                     return;
                 }
             }
             if(options['onFooterSettingItemClick']){
-                found = this.closest(evt.target,'ivaap-card__footer-settings');
+                found = this.closest(evt.target,'mui-card__footer-settings');
                 if(found){
                     this.openFooterSettings();
                     return;
@@ -138,7 +138,7 @@ mui.AbstractCard = function(){
      * @return {mui.AbstractCard}
      */
     AbstractCard.prototype.setHeaderIcon =function(icon){
-        this._header.childNodes[0].className='ivaap-card__header-icon '+icon;
+        this._header.childNodes[0].className='mui-card__header-icon '+icon;
         return this;
     };
     /**
@@ -195,16 +195,16 @@ mui.AbstractCard = function(){
                 var id = this._headerActions.getId(act);
                 var icon = this._headerActions.getIcon(act);
                 var name = this._headerActions.getName(act);
-                var actE = this.create({'type': 'button', 'className': 'ivaap-card__header-action'}).add(
-                    icon ? this.create('ivaap-card__action-icon ' + icon) : null,
-                    name ? this.create({'className': 'ivaap-card__action-label', 'text': name}) : null
+                var actE = this.create({'type': 'button', 'className': 'mui-card__header-action'}).add(
+                    icon ? this.create('mui-card__action-icon ' + icon) : null,
+                    name ? this.create({'className': 'mui-card__action-label', 'text': name}) : null
                 );
                 actE.__id = id;
                 frag.add(actE);
             }
         }
         if(this._headerSettingsVisible){
-            this._headerSettingBtn =this.create('ivaap-card__header-settings');
+            this._headerSettingBtn =this.create('mui-card__header-settings');
             frag.add(this._headerSettingBtn);
         }
         this._headerActionsE.clear().add(frag);
@@ -222,15 +222,15 @@ mui.AbstractCard = function(){
             var id = this._footerActions.getId(act);
             var icon = this._footerActions.getIcon(act);
             var name = this._footerActions.getName(act);
-            var actE = this.create({'type':'button','className':'ivaap-card__footer-action'}).add(
-                icon?this.create('ivaap-card__action-icon '+icon):null,
-                name?this.create({'className':'ivaap-card__action-label','text':name}):null
+            var actE = this.create({'type':'button','className':'mui-card__footer-action'}).add(
+                icon?this.create('mui-card__action-icon '+icon):null,
+                name?this.create({'className':'mui-card__action-label','text':name}):null
             );
             actE.__id = id;
             frag.add(actE);
         }
         if(this._footerSettingVisible){
-            this._footerSettingBtn =this.create('ivaap-card__footer-setting');
+            this._footerSettingBtn =this.create('mui-card__footer-setting');
             frag.add(this._footerSettingBtn);
         }
         this._footer.clear().add(frag);
@@ -295,7 +295,7 @@ mui.Card = function(){
         }
         this._headerFirst = options['headerFirst'];
         mui.AbstractCard.call(this,options);
-        this.addClass('ivaap-card--ver');
+        this.addClass('mui-card--ver');
 
     };
     mui.inherits(VCard,mui.AbstractCard);

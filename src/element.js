@@ -66,9 +66,9 @@ mui.Element = function(){
         var guid = options['guid']?options['guid']:'gui-id-'+(++counter);
         this._el.__GUID = guid;
         this._el.__ref = this;
-        this._el.classList.add('ivaap-el');
+        this._el.classList.add('mui-el');
         if(options['fitToParent']){
-            this._el.classList.add('ivaap-el--fit-to-parent');
+            this._el.classList.add('mui-el--fit-to-parent');
         }
         var w = options['width'];
         var h = options['height'];
@@ -80,10 +80,10 @@ mui.Element = function(){
         }
 
         if( options['expandedToParent']){
-            this.addClass('ivaap-flex-child--expanded');
+            this.addClass('mui-flex-child--expanded');
         }
         if(options['crossAxisAlignSelf']){
-            this.addClass('ivaap-flex__cross-axis-self--'+options['crossAxisAlignSelf']);
+            this.addClass('mui-flex__cross-axis-self--'+options['crossAxisAlignSelf']);
         }
 
         if(options['style']){
@@ -545,9 +545,9 @@ mui.Element = function(){
      * @param {function} callback
      */
     Element.onClickOutside = function(element,callback){
-        element.classList.add('ivaap-popup--open');
+        element.classList.add('mui-popup--open');
         element.__mouseDownHandler = function(evt){
-            var found = Element.closest(evt.target,'ivaap-popup--open');
+            var found = Element.closest(evt.target,'mui-popup--open');
             if(found)return;
             var removed = callback();
             if(removed===false)return;
@@ -931,7 +931,7 @@ mui.Center = function(){
             options = {};
         }
         mui.SingleChildContainer.call(this,options);
-        this.addClass('ivaap-center');
+        this.addClass('mui-center');
     };
     mui.inherits(Center,mui.SingleChildContainer);
 
@@ -956,12 +956,12 @@ mui.Box = function(){
             options = {};
         }
         mui.MultipleChildContainer.call(this,options);
-        this.addClass('ivaap-box');
+        this.addClass('mui-box');
         if(options['mainAxisAlign']){
-            this.addClass('ivaap-box__main-axis--'+options['mainAxisAlign']);
+            this.addClass('mui-box__main-axis--'+options['mainAxisAlign']);
         }
         if(options['crossAxisAlign']){
-            this.addClass('ivaap-box__cross-axis--'+options['crossAxisAlign']);
+            this.addClass('mui-box__cross-axis--'+options['crossAxisAlign']);
         }
     };
     mui.inherits(Box, mui.MultipleChildContainer);
@@ -1005,7 +1005,7 @@ mui.VBox = function(){
             options['mainAxisAlign'] = VER_ALIGN[options['verticalAlign']];
         }
         mui.Box.call(this,options);
-        this.addClass('ivaap-vbox');
+        this.addClass('mui-vbox');
     };
     mui.inherits(VBox,mui.Box);
     return VBox;
@@ -1049,7 +1049,7 @@ mui.HBox = function(){
         }
 
         mui.Box.call(this,options);
-        this.addClass('ivaap-hbox');
+        this.addClass('mui-hbox');
 
     };
     mui.inherits(VBox,mui.Box);

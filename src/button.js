@@ -29,13 +29,13 @@ mui.Button = function(){
         }
         options['type']='button';
         mui.Element.call(this,options);
-        this.addClass('ivaap-button');
+        this.addClass('mui-button');
         this._onMenuItemClick = options['onMenuItemClick'];
-        this._iconE = this.create('ivaap-button__icon');
-        this._labelE = this.create('ivaap-button__label');
-        this._descE = this.create('ivaap-button__desc');
-        this._carretE = this.create('ivaap-button__caret ivaap-button__caret-icon');
-        this._leftContainer = this.create('ivaap-button__left-container');
+        this._iconE = this.create('mui-button__icon');
+        this._labelE = this.create('mui-button__label');
+        this._descE = this.create('mui-button__desc');
+        this._carretE = this.create('mui-button__caret mui-button__caret-icon');
+        this._leftContainer = this.create('mui-button__left-container');
         this._leftContainer.add(this._labelE,this._descE);
 
         this._iconClass = options['icon'];
@@ -151,7 +151,7 @@ mui.Button = function(){
     Button.prototype._update = function(){
         this.clear();
         if(this._iconClass){
-            this._iconE.className = 'ivaap-button__icon '+ this._iconClass;
+            this._iconE.className = 'mui-button__icon '+ this._iconClass;
             this.add(this._iconE);
         }
         if(this._desc) {

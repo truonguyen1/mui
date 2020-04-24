@@ -23,7 +23,7 @@ mui.ColorEditor = function(){
             options = {};
         }
         mui.Element.call(this,options);
-        this.addClass('ivaap-color-editor');
+        this.addClass('mui-color-editor');
 
         this._onChanged = options['onChanged'];
         var _pickerBtn = this.create();

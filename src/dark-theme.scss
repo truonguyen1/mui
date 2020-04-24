@@ -14,15 +14,15 @@ $on-accent:white;
 $alert:#d9534f;
 $on-alert:white;
 @use "colors" with (
-  $ivaap-theme-primary:$primary,
-  $ivaap-theme-accent:$accent,
-  $ivaap-theme-surface:$surface,
-  $ivaap-theme-alert:$alert,
-  $ivaap-theme-background:$bg,
-  $ivaap-theme-on-primary:$on-primary,
-  $ivaap-theme-on-accent:$on-accent,
-  $ivaap-theme-on-surface:$on-surface,
-  $ivaap-theme-on-alert:$on-alert,
-  $ivaap-theme-on-background:$on-bg
+  $mui-theme-primary:$primary,
+  $mui-theme-accent:$accent,
+  $mui-theme-surface:$surface,
+  $mui-theme-alert:$alert,
+  $mui-theme-background:$bg,
+  $mui-theme-on-primary:$on-primary,
+  $mui-theme-on-accent:$on-accent,
+  $mui-theme-on-surface:$on-surface,
+  $mui-theme-on-alert:$on-alert,
+  $mui-theme-on-background:$on-bg
 );
 @use "ui";

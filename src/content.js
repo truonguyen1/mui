@@ -15,7 +15,7 @@
 mui.Content = function(){
     var Content = function(options){
         mui.AbstractSingleChildContainer.call(this,options);
-        this.addClass('ivaap-content');
+        this.addClass('mui-content');
     };
     mui.inherits(Content, mui.AbstractSingleChildContainer);
 
@@ -47,7 +47,7 @@ mui.Content = function(){
      * @return {mui.Content}
      */
     Content.prototype.setLoading = function(message){
-        this.showMessage(message,'ivaap-content__loading-icon');
+        this.showMessage(message,'mui-content__loading-icon');
         return this;
     };
 
@@ -57,7 +57,7 @@ mui.Content = function(){
      * @return {mui.Content}
      */
     Content.prototype.setError = function(message){
-        this.showMessage(message,'ivaap-content__error-icon');
+        this.showMessage(message,'mui-content__error-icon');
         return this;
     };
 
@@ -67,7 +67,7 @@ mui.Content = function(){
      */
     Content.prototype.hideMessage = function(){
         this.setChild(this._content);
-        this.removeClass('ivaap-content--notification-visible');
+        this.removeClass('mui-content--notification-visible');
         return this;
     };
 
@@ -80,18 +80,18 @@ mui.Content = function(){
     Content.prototype.showMessage = function(message,icon){
         if(this._notification==null){
             this._notification = new mui.Element({
-                'className':'ivaap-notification'
+                'className':'mui-notification'
             });
             this._notificationIcon = this.create();
-            this._notificationMessage = this.create('ivaap-notification__message');
+            this._notificationMessage = this.create('mui-notification__message');
             this._notification.add(this._notificationIcon,this._notificationMessage);
         }
         if(icon==null){
-            icon = 'ivaap-content__info';
+            icon = 'mui-content__info';
         }
-        this._notificationIcon.className = 'ivaap-notification__icon '+icon;
+        this._notificationIcon.className = 'mui-notification__icon '+icon;
         this._notificationMessage.textContent = message;
-        this.addClass('ivaap-content--notification-visible');
+        this.addClass('mui-content--notification-visible');
         this.setChild(this._notification);
         return this;
 

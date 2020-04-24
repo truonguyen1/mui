@@ -9,7 +9,7 @@
 @use "icons" as Icons;
 
 
-.ivaap-dropdown{
+.mui-dropdown{
   @include Core.flex--hor;
   @include Core.flex-align__container-cross-axis;
   @include Core.ripple;
@@ -32,21 +32,21 @@
   @include Colors.container("surface");
 
 }
-.ivaap-dropdown__display{
+.mui-dropdown__display{
   @include Core.flex-item--scaled;
 }
-.ivaap-dropdown__caret-icon{
+.mui-dropdown__caret-icon{
   @include Icons.icon("caret-down");
   margin-left:8px;
   margin-right:8px;
 }
-.ivaap-dropdown__label{
+.mui-dropdown__label{
   margin-left:8px;
   height:24px;
   line-height: 24px;
 
 }
-.ivaap-dropdown__image{
+.mui-dropdown__image{
   margin-left:8px;
   width:100px;
   height:24px;

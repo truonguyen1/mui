@@ -10,7 +10,7 @@ window.Demo = function(){
     var Entity = mui.Entity;
     var Demo = function(parent){
         var app =Factory.createVBox({
-            'style':new Theme().containerOf('background').addClass('ivaap-app')
+            'style':new Theme().containerOf('background').addClass('mui-app')
         });
         app.makeMeAsRoot();
         app.attachTo(parent);

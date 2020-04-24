@@ -33,12 +33,12 @@ mui.Checkbox = function(){
         options['type']='button';
         mui.Element.call(this,options);
         this._onSelected = options['onSelected'];
-        this.addClass('ivaap-checkbox');
+        this.addClass('mui-checkbox');
         if(options['horizontal']){
-            this.addClass('ivaap-checkbox--hor');
+            this.addClass('mui-checkbox--hor');
         }
-        this.addClass('ivaap-checkbox');
-        this._iconE = this.create('ivaap-checkbox__icon');
+        this.addClass('mui-checkbox');
+        this._iconE = this.create('mui-checkbox__icon');
 
         this.add(this._iconE);
 
@@ -83,11 +83,11 @@ mui.Checkbox = function(){
     Checkbox.prototype.setSelected = function(bool){
         if(this._selected===bool)return this;
         this._selected = bool;
-        this._iconE.className = 'ivaap-checkbox__icon '+(bool?'ivaap-checkbox__icon--selected':'');
+        this._iconE.className = 'mui-checkbox__icon '+(bool?'mui-checkbox__icon--selected':'');
         if(bool){
-            this.addClass('ivaap-checkbox--selected');
+            this.addClass('mui-checkbox--selected');
         }else{
-            this.removeClass('ivaap-checkbox--selected');
+            this.removeClass('mui-checkbox--selected');
         }
         if(this._onSelected){
             this._onSelected(bool,this);
@@ -120,7 +120,7 @@ mui.Checkbox = function(){
      */
     Checkbox.prototype.setLabel = function(text){
         if(this._labelE==null) {
-            this._labelE = this.create('ivaap-checkbox__label');
+            this._labelE = this.create('mui-checkbox__label');
             this.add(this._labelE);
         }
         this._labelE.textContent = text;

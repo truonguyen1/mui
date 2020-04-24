@@ -4,11 +4,11 @@
  *  INT PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
 
-@use "ivaap-v1.0/variables" as Icons;
+@use "mui-v1.0/variables" as Icons;
 @use "sass:map";
 
 $_font-family:"ivaap";
-$_font-path:"ivaap-v1.0/fonts";
+$_font-path:"mui-v1.0/fonts";
 
 $icons: (
   "info":Icons.$icon-info,
@@ -34,7 +34,7 @@ $icons: (
   "three-dots-vertical":Icons.$icon-more-vertical
 );
 
-@keyframes ivaap-anim--spin {
+@keyframes mui-anim--spin {
   0% {
     transform: rotate(0deg);
   }
@@ -77,7 +77,7 @@ $icons: (
 
 
 @mixin icon-anim--rotated(){
-  animation: ivaap-anim--spin 2s infinite linear;
+  animation: mui-anim--spin 2s infinite linear;
 }
 
 /**

@@ -9,40 +9,40 @@
 @use "core" as Core;
 @use "icons" as Icons;
 @use "typography" as Typos;
-.ivaap-card{
+.mui-card{
   border:none;
   border-radius:3px;
   overflow: hidden;
   @include Colors.container("surface");
 }
-.ivaap-card--ver{
+.mui-card--ver{
   @include Core.flex--ver;
 }
-.ivaap-card__header{
+.mui-card__header{
   @include Core.flex--hor;
   @include Core.flex-align__container-cross-axis;
   padding:16px 8px;
 }
-.ivaap-card__primary-title{
+.mui-card__primary-title{
   @include Typos.typography-subtitle--bold;
 }
-.ivaap-card__second-title{
+.mui-card__second-title{
   @include Typos.caption;
 }
-.ivaap-card__footer-setting,
-.ivaap-card__header-settings{
+.mui-card__footer-setting,
+.mui-card__header-settings{
   @include Icons.icon("three-dots-vertical");
   padding:8px;
 }
-.ivaap-card__header-icon {
+.mui-card__header-icon {
   padding: 8px;
 }
-.ivaap-card__header-body{
+.mui-card__header-body{
   @include Core.flex--ver;
   @include Core.flex-item--scaled;
   padding: 0px 8px;
 }
-.ivaap-card__body{
+.mui-card__body{
   @include Core.flex-item--scaled;
   //background-image:url('alt_holder.svg');
   background-position: center;
@@ -55,20 +55,20 @@
   //}
 
 }
-.ivaap-card__header-actions{
+.mui-card__header-actions{
   @include Core.flex--hor;
 }
-.ivaap-card__footer{
+.mui-card__footer{
   @include Core.flex--hor;
   padding:8px 8px;
   @include Core.flex-align__container-main-axis(flex-start);
   padding-top:0px;
 }
-.ivaap-card__footer-setting,
-.ivaap-card__header-settings,
-.ivaap-card__header-action,
-.ivaap-card__footer-action{
-  @include Button.ivaap-button;
+.mui-card__footer-setting,
+.mui-card__header-settings,
+.mui-card__header-action,
+.mui-card__footer-action{
+  @include Button.mui-button;
   padding:8px;
   &:focus,
   &:hover{

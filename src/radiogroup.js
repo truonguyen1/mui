@@ -25,11 +25,11 @@ mui.RadioGroup = function(){
         }
         mui.Element.call(this,options);
         this._onChanged = options['onChanged'];
-        this.addClass('ivaap-radio-group');
+        this.addClass('mui-radio-group');
         if(options['vertical']){
-            this.addClass('ivaap-radio-group--ver');
+            this.addClass('mui-radio-group--ver');
         }else{
-            this.addClass('ivaap-radio-group--hor');
+            this.addClass('mui-radio-group--hor');
         }
         this.setItems (options['items']);
     };
@@ -69,14 +69,14 @@ mui.RadioGroup = function(){
         while(it.hasNext()) {
             var act = it.next();
             var id = items.getId(act);
-            this.create({'className':'ivaap-radio-group__btn','type':'button'}).add(
+            this.create({'className':'mui-radio-group__btn','type':'button'}).add(
 
             )
 
             var btn = new mui.Button({
                 'label': items.getName(act),
-                'icon': this._selected ===id ? 'ivaap-radio-group__btn-icon-selected' : 'ivaap-radio-group__btn-icon-empty',
-                'className': 'ivaap-radio-group__btn ' + (this._selected === id ? 'ivaap-radio-group__btn--selected' : ''),
+                'icon': this._selected ===id ? 'mui-radio-group__btn-icon-selected' : 'mui-radio-group__btn-icon-empty',
+                'className': 'mui-radio-group__btn ' + (this._selected === id ? 'mui-radio-group__btn--selected' : ''),
                 'onClick': this._handleBtnClick.bind(this, id)
             });
             btn.attachTo(this.getElement());
@@ -93,14 +93,14 @@ mui.RadioGroup = function(){
     RadioGroup.prototype.setActive = function(id){
         if(this._selected===id)return;
         if(this._cachedBtn && this._cachedBtn.get(this._selected)){
-            this._cachedBtn.get(this._selected).setIcon('ivaap-radio-group__btn-icon-empty');
-            this._cachedBtn.get(this._selected).removeClass('ivaap-radio-group__btn--selected');
+            this._cachedBtn.get(this._selected).setIcon('mui-radio-group__btn-icon-empty');
+            this._cachedBtn.get(this._selected).removeClass('mui-radio-group__btn--selected');
 
         }
         this._selected = id;
         if(this._cachedBtn && this._cachedBtn.get(id)) {
-            this._cachedBtn.get(id).setIcon('ivaap-radio-group__btn-icon-selected');
-            this._cachedBtn.get(id).addClass('ivaap-radio-group__btn--selected');
+            this._cachedBtn.get(id).setIcon('mui-radio-group__btn-icon-selected');
+            this._cachedBtn.get(id).addClass('mui-radio-group__btn--selected');
         }
         if(this._onChanged){
             this._onChanged(id);

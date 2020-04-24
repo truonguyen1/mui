@@ -24,9 +24,9 @@ mui.DateTimePicker = function(){
 
     var DateTimePicker = function(options){
         mui.Element.call(this,options);
-        this.addClass('ivaap-datetime-picker');
+        this.addClass('mui-datetime-picker');
         this._onClick = options['onClick'];
-        this._input = this.create({'type':'input','className':'ivaap-datetime-picker__input flatpickr '});
+        this._input = this.create({'type':'input','className':'mui-datetime-picker__input flatpickr '});
         this.add(this._input);
         this._clickHandler = function(evt){
             if(this._onClick){

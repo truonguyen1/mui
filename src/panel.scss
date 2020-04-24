@@ -3,12 +3,12 @@
 @use "colors" as Colors;
 $border-to-content:16px;
 
-.ivaap-panel{
+.mui-panel{
   @include Core.flex--ver;
   border-color: inherit;
   min-height:100px;
 }
-.ivaap-panel__header{
+.mui-panel__header{
   @include Core.flex--hor;
   @include Core.flex-align__container-cross-axis;
   @include Colors.container-bold("surface");
@@ -17,36 +17,36 @@ $border-to-content:16px;
   height: 56px;
   //padding: 0px 15px;
 }
-.ivaap-panel__header-icon{
+.mui-panel__header-icon{
   padding:8px;
   padding-right:0px;
 }
 
-.ivaap-panel__left-header{
+.mui-panel__left-header{
   @include Core.flex--hor;
   @include Core.flex-item--scaled;
   @include Core.flex-align__container-cross-axis;
   margin-left:8px;
 }
-.ivaap-panel__right-actions{
+.mui-panel__right-actions{
   @include Core.flex--hor;
   @include Core.flex-align__container-cross-axis;
 }
-.ivaap-panel__title{
+.mui-panel__title{
   @include Core.flex--ver;
   @include Core.flex-align__container-main-axis;
   padding:8px;
 
 }
-.ivaap-panel__title-dropdown{
+.mui-panel__title-dropdown{
   padding-left:0px;
 }
-.ivaap-panel__header-close-btn {
+.mui-panel__header-close-btn {
   //padding-right: 0px;
   font-size: 15px;
   margin-right:8px;
 }
-.ivaap-panel__title-text{
+.mui-panel__title-text{
   //@include flex-item--scaled;
   font-size: 13px;
   font-weight: bold;
@@ -55,7 +55,7 @@ $border-to-content:16px;
   text-overflow: ellipsis;
   overflow: hidden;
 }
-.ivaap-panel__title-desc{
+.mui-panel__title-desc{
   //@include flex-item--scaled;
   font-size: 9px;
   opacity: 0.6;
@@ -64,10 +64,10 @@ $border-to-content:16px;
   text-overflow: ellipsis;
 }
 
-.ivaap-panel__body{
+.mui-panel__body{
   @include Core.flex-item--scaled;
 }
-.ivaap-panel__footer{
+.mui-panel__footer{
   @include Core.flex--hor;
   @include Core.flex-align__container-main-axis;
   @include Core.flex-align__container-cross-axis;
@@ -76,10 +76,10 @@ $border-to-content:16px;
   padding: 15px;
 
 }
-.ivaap-panel__footer-btn{
+.mui-panel__footer-btn{
   margin:0px 4px;
 }
-.ivaap-panel__close-icon{
+.mui-panel__close-icon{
   @include Icons.icon("cross");
 
 }

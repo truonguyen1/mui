@@ -8,7 +8,7 @@
 @use "button" as Button;
 @use "textfield" as Text;
 @import '~@simonwep/pickr/dist/themes/monolith.min';
-.ivaap-colorpicker{
+.mui-colorpicker{
   width:30px;
   height:30px;
   border-radius:3px;
@@ -29,13 +29,13 @@
 
 
 }
-.ivaap-colorpicker__trans-img{
+.mui-colorpicker__trans-img{
   @include Core.absolute;
   background: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 2"><path fill="white" d="M1,0H2V1H1V0ZM0,1H1V2H0V1Z"/><path fill="gray" d="M0,0H1V1H0V0ZM1,1H2V2H1V1Z"/></svg>');
   background-size: 6px;
   border-radius: .15em;
 }
-.ivaap-colorpicker__bg{
+.mui-colorpicker__bg{
   @include  Core.absolute;
   //&:before{
   //  position: absolute;
@@ -76,14 +76,14 @@
 .pcr-app .pcr-interaction .pcr-save{
   margin-left:16px;
   @include Button.button--shadow;
-  @include Button.ivaap-button;
+  @include Button.mui-button;
   @include Colors.container("accent");
 }
 .pcr-app .pcr-interaction .pcr-cancel, .pcr-app .pcr-interaction .pcr-clear{
   @include   Button.button-link;
 }
 .pcr-app .pcr-interaction .pcr-result{
-  @include Text.ivaap-text__input;
+  @include Text.mui-text__input;
   @include Colors.border-on-background("surface");
   padding:10px 16px;
 }

@@ -6,7 +6,7 @@
 @use "core" as Core;
 @use "colors" as Colors;
 @use "icons" as Icons;
-.ivaap-menu{
+.mui-menu{
   -webkit-box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
   box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
   border-radius:3px;
@@ -14,13 +14,13 @@
   overflow:auto;
   @include Colors.container("surface");
 }
-.ivaap-menu__item-container{
+.mui-menu__item-container{
   padding:8px 0px;
   margin: 0px;
   color:inherit;
 }
 
-.ivaap-menu__item{
+.mui-menu__item{
   @include Core.flex--hor;
   @include Core.flex-align__container-cross-axis;
   color:inherit;
@@ -40,21 +40,21 @@
   }
   @include Core.ripple;
 }
-.ivaap-menu__item--selected{
+.mui-menu__item--selected{
   @include Core.active-container("accent");
 }
-.ivaap-menu__item-image{
+.mui-menu__item-image{
   width:100px;
   height:30px;
   border-radius: 3px;
 }
-.ivaap-menu__item-icon{
+.mui-menu__item-icon{
   margin-right:8px;
 }
-.ivaap-menu__item-label{
+.mui-menu__item-label{
   @include  Core.flex-item--scaled;
 }
-.ivaap-menu__item-parent-icon{
+.mui-menu__item-parent-icon{
   @include Icons.icon('collapsed');
   margin-left:16px;
 }

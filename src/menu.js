@@ -23,15 +23,15 @@ mui.AbstractMenu = function(){
     var AbstractMenu = function(options){
         if(options==null)options = {};
         mui.Element.call(this,options);
-        this.addClass('ivaap-menu');
-        this._ul = this.create({'type':'ul','className':'ivaap-menu__item-container'});
+        this.addClass('mui-menu');
+        this._ul = this.create({'type':'ul','className':'mui-menu__item-container'});
         this.add(this._ul);
         this._items = options['items'];
         this._parentEntity = options['parentEntity'];
         this._onItemClick = options['onItemClick'];
         this.setItems(options['items']);
         this._liClickHandler =function(evt){
-            var found =this.closest(evt.target,'ivaap-menu__item');
+            var found =this.closest(evt.target,'mui-menu__item');
             if(found==null){
                 return;
             }
@@ -73,12 +73,12 @@ mui.AbstractMenu = function(){
     AbstractMenu.prototype.setSelected = function(id){
         var elm = this._cachedElements.get(this._selectedId);
         if(elm){
-            elm.classList.remove('ivaap-menu__item--selected');
+            elm.classList.remove('mui-menu__item--selected');
         }
         this._selectedId = id;
         elm =this._cachedElements.get(id);
         if(elm){
-            elm.classList.add('ivaap-menu__item--selected');
+            elm.classList.add('mui-menu__item--selected');
         }
         return this;
     };
@@ -177,10 +177,10 @@ mui.AbstractMenu = function(){
             item = items.next();
             var id = data.getId(item);
             elm = this.createItem(data,item);
-            elm.classList.add('ivaap-menu__item');
+            elm.classList.add('mui-menu__item');
             elm.__id = id;
             if(elm.__id===this._selectedId){
-                elm.classList.add('ivaap-menu__item--selected');
+                elm.classList.add('mui-menu__item--selected');
             }
             frag.add(elm);
             this._cachedItems.set(id,item);
@@ -223,7 +223,7 @@ mui.Menu = function(){
         mui.AbstractMenu.prototype.dispose.call(this);
     };
     Menu.prototype.handleItemClick = function(id,item,itemElement,evt){
-        if(itemElement.classList.contains('ivaap-menu__item--parent')){
+        if(itemElement.classList.contains('mui-menu__item--parent')){
             this.toggleSubMenu(id);
             return false;
         }
@@ -300,17 +300,17 @@ mui.Menu = function(){
 
         var elm = this.create({'type': 'li'});
         if (icon) {
-            var iconE = this.create('ivaap-menu__item-icon ' + icon);
+            var iconE = this.create('mui-menu__item-icon ' + icon);
             elm.add(iconE);
         }
-        var nameE = this.create('ivaap-menu__item-label');
+        var nameE = this.create('mui-menu__item-label');
         nameE.textContent = data.getName(item);
         elm.add(nameE);
 
         if (isParent) {
-            var expandIcon = this.create("ivaap-menu__item-parent-icon");
+            var expandIcon = this.create("mui-menu__item-parent-icon");
             elm.add(expandIcon);
-            elm.classList.add('ivaap-menu__item--parent');
+            elm.classList.add('mui-menu__item--parent');
         }
         this._cachedItemElements.set(id,elm);
         return elm;
@@ -361,7 +361,7 @@ mui.ImageMenu = function(){
 
         var elm = this.create({'type': 'li'});
         elm.setAttribute('title',name);
-        var imageE = this.create('ivaap-menu__item-image');
+        var imageE = this.create('mui-menu__item-image');
         imageE.style.backgroundImage = 'url("'+image+'")';
         if(this._imageWidth) {
             imageE.style.width = this._imageWidth;

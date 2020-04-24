@@ -53,7 +53,7 @@ mui.ViewportRenderContext = function(){
 mui.AbstractLazyViewport = function(){
     var AbstractLazyViewport =function(options){
         mui.Element.call(this,options);
-        this.addClass('ivaap-lazy-viewport');
+        this.addClass('mui-lazy-viewport');
         this._onViewPositionChanged = options['onViewPositionChanged'];
         this._scrollbarSizeUpdate = options['scrollbarSizeUpdate']!=null?options['scrollbarSizeUpdate']:false;
         this._onScrollbarVisibilityChanged = options['onScrollbarWidthChanged'];
@@ -212,10 +212,10 @@ mui.AbstractLazyViewport = function(){
 mui.AbstractLazyList = function(){
     var AbstractLazyList =function(options){
         mui.AbstractLazyViewport .call(this,options);
-        this.addClass('ivaap-lazy-list');
+        this.addClass('mui-lazy-list');
         this._rowHeight = options['rowHeight'] || 35;
 
-        this._content = this.create({'type':'ul','className':'ivaap-lazy-list__content'});
+        this._content = this.create({'type':'ul','className':'mui-lazy-list__content'});
         this.add(this._content);
     };
     mui.inherits(AbstractLazyList,mui.AbstractLazyViewport );
@@ -279,9 +279,9 @@ mui.AbstractLazyList = function(){
             rowElement.style.lineHeight = rHeight+'px';
             visibleFragment.appendChild(rowElement);
         }
-        var topSpacerElm = this.create({'className':'ivaap-lazy-list__top-spacer'});
+        var topSpacerElm = this.create({'className':'mui-lazy-list__top-spacer'});
         topSpacerElm.style.height = topHeight+'px';
-        var bottomSpacerElm = this.create({'className':'ivaap-lazy-list__bottom-spacer'});
+        var bottomSpacerElm = this.create({'className':'mui-lazy-list__bottom-spacer'});
         bottomSpacerElm.style.height = bottomHeight+'px';
         this._content.clear();
         this._content.add(topSpacerElm,visibleFragment,bottomSpacerElm);

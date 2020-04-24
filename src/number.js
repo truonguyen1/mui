@@ -27,14 +27,14 @@ mui.Number = function(){
         mui.Element.call(this,options);
         this._showControlButtons = options['showControlButton']!=null?options['showControlButton']:true;
         this._onChanged = options['onChanged'];
-        this.addClass('ivaap-number');
-        this._inputE = this.create({'type':'input','className':'ivaap-number__input'});
+        this.addClass('mui-number');
+        this._inputE = this.create({'type':'input','className':'mui-number__input'});
         this._value =options['value'];
         if(options['placeholder']){
             this._inputE.setAttribute('placeholder',options['placeholder']);
         }
-        this._incrE = this.create({'type':'button','className':'ivaap-number__incr ivaap-number__incr-icon'});
-        this._decrE = this.create({'type':'button','className':'ivaap-number__decr ivaap-number__decr-icon'});
+        this._incrE = this.create({'type':'button','className':'mui-number__incr mui-number__incr-icon'});
+        this._decrE = this.create({'type':'button','className':'mui-number__decr mui-number__decr-icon'});
         this._step = Math.abs(options['step']|| 1);
         this._incrClickHandler = function(evt){
             if(options['onWillChange']){

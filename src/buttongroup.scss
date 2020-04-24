@@ -8,14 +8,14 @@
 @use "colors" as Colors;
 @use "core" as Core;
 
-.ivaap-button-group{
+.mui-button-group{
   border:none;
   border-radius:3px;
   overflow: hidden;
 }
-.ivaap-button-group--hor{
+.mui-button-group--hor{
   @include Core.flex--hor;
-  &>.ivaap-button-group__btn {
+  &>.mui-button-group__btn {
     margin-right: 1px;
 
     &:last-child {
@@ -23,9 +23,9 @@
     }
   }
 }
-.ivaap-button-group--ver{
+.mui-button-group--ver{
   @include Core.flex--ver;
-  &>.ivaap-button-group__btn {
+  &>.mui-button-group__btn {
     margin-bottom: 1px;
 
     &:last-child {
@@ -33,23 +33,23 @@
     }
   }
 }
-.ivaap-button-group__btn{
-  @include Button.ivaap-button;
+.mui-button-group__btn{
+  @include Button.mui-button;
   @include Button.button--square;
   @include  Colors.container("surface");
   padding:16px;
   //border-right:1px solid transparent;
   //@include Colors.border-on-background("surface");
-  &:not(.ivaap-button-group__btn--selected):not(.ivaap-button-group__btn--active){
+  &:not(.mui-button-group__btn--selected):not(.mui-button-group__btn--active){
     @include Core.hover-focus-background("accent");
   }
 
 
 }
-.ivaap-button-group__btn--selected{
+.mui-button-group__btn--selected{
   @include Core.active-container("accent");
 }
-.ivaap-button-group__btn--active{
+.mui-button-group__btn--active{
   @include Core.active-container("accent");
 
 }
