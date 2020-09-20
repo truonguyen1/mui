@@ -24,12 +24,14 @@ module.exports = function(env){
     //     if(!scssFiles.hasOwnProperty(name))continue;
     //     entry[name+'_style'] = path.resolve(__dirname, scssFiles[name]);
     // }
-    entry['theme_style'] = path.resolve(__dirname, scssFiles['dark']);
+    // entry['theme_style'] = path.resolve(__dirname, scssFiles['dark']);
     //3rd libs js
     let resources = json['resource'];
     var counter = 0;
+    var entries = [path.resolve(__dirname, scssFiles['dark'])];
     resources.forEach(function(file){
-        entry['vendor_'+(++counter)] = path.resolve(__dirname, file);
+        // entry['vendor_'+(++counter)] = path.resolve(__dirname, file);
+        entries.push(path.resolve(__dirname, file));
     });
 
     //Ui js
@@ -37,13 +39,17 @@ module.exports = function(env){
         return path.resolve(__dirname, file);
     });
     jsFiles.unshift('./testnamespaces.js');
-    entry['main'] = jsFiles;
+    entries = entries.concat(jsFiles);
+    entry['main'] = entries;
+
 
     //Demo js
     entry['demo'] = './demo/demo.js';
     entry['demo_style'] = './demo/demo.scss';
 
     // entry  = './demo.js';
+
+
     return {
         entry:entry,
         output: {
